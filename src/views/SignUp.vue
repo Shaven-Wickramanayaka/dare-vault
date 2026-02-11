@@ -1,7 +1,6 @@
 <script>
-import SignInButton from "../components/SignInButton.vue";
 import Navbar from "../components/Navbar.vue";
-import SignIn from "../components/SignIn.vue";
+import SignInForm from "../components/SignInForm.vue";
 import SignUpForm from "../components/SignUpForm.vue";
 export default {
   name: "Home",
@@ -9,6 +8,7 @@ export default {
     Navbar,
     SignInButton,
     SignUpForm,
+    SignInForm,
   },
 };
 </script>

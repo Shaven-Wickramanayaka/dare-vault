@@ -1,5 +1,12 @@
 <script>
-export default {};
+import SignOutButton from "./SignOutButton.vue";
+
+export default {
+  name: "Navbar",
+  components: {
+    SignOutButton,
+  },
+};
 </script>
 <template>
   <nav class="bg-gray-800 text-white w-full">
@@ -9,6 +16,7 @@ export default {};
       <li>Hi</li>
       <router-link to="/dashboard">Dashboard</router-link>
       <router-link to="/signup">Sign In</router-link>
+      <SignOutButton></SignOutButton>
     </ul>
   </nav>
 </template>
