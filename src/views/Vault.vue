@@ -4,13 +4,9 @@ import { useCollection } from "vuefire";
 import { collection } from "firebase/firestore";
 const db = useFirestore();
 const user = useCurrentUser();
-const vaults = useCollection(collection(db, "vaults"));
+
+const getDare = () => {};
 </script>
 <template>
-  <h1>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
-    voluptate nam saepe perferendis laudantium, officia iusto tenetur ipsum
-    dicta omnis corrupti quas, consequuntur nostrum, soluta harum! Laboriosam
-    magnam tempore est!
-  </h1>
+  <button @click="GetDare" class="p-3">Get Dare</button>
 </template>
