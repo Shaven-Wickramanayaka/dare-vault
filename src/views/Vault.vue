@@ -7,14 +7,10 @@ const user = useCurrentUser();
 const vaults = useCollection(collection(db, "vaults"));
 </script>
 <template>
-  <div>
-    <h1>Hello {{ user.displayName }}</h1>
-    <ul classs="p-2">
-      <li v-for="vault in vaults" :key="vault.id">
-        <a :href="'/dashboard/' + vault.id">
-          <p>{{ vault.Name }}</p>
-        </a>
-      </li>
-    </ul>
-  </div>
+  <h1>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
+    voluptate nam saepe perferendis laudantium, officia iusto tenetur ipsum
+    dicta omnis corrupti quas, consequuntur nostrum, soluta harum! Laboriosam
+    magnam tempore est!
+  </h1>
 </template>
