@@ -1,20 +1,26 @@
 <script setup>
-import { useCurrentUser, useFirestore } from "vuefire";
+import { useCurrentUser, useDocument, useFirestore } from "vuefire";
 import { useCollection } from "vuefire";
-import { collection } from "firebase/firestore";
+import { collection, doc, query } from "firebase/firestore";
+import { computed } from "vue";
+import AddVault from "../components/AddVault.vue";
+
 const db = useFirestore();
 const user = useCurrentUser();
-const vaults = useCollection(collection(db, "vaults"));
+
+const userRef = doc(db, "users", user.value.uid);
+const userData = useDocument(userRef);
 </script>
 <template>
   <div>
     <h1>Hello {{ user.displayName }}</h1>
     <ul classs="p-2">
-      <li v-for="vault in vaults" :key="vault.id">
-        <a :href="'/dashboard/' + vault.id">
-          <p>{{ vault.Name }}</p>
+      <li v-for="(vaultName, vaultId) in userData.joinedVaults" :key="vaultId">
+        <a :href="'/vaults/' + vaultId">
+          <p>{{ vaultName }}</p>
         </a>
       </li>
     </ul>
+    <AddVault></AddVault>
   </div>
 </template>

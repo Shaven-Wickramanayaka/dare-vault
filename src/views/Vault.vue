@@ -9,4 +9,5 @@ const getDare = () => {};
 </script>
 <template>
   <button @click="GetDare" class="p-3">Get Dare</button>
+  <input type="text" />
 </template>

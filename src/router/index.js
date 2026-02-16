@@ -19,7 +19,7 @@ const routes = [
     component: SignUp,
   },
   {
-    path: "/dashboard/:id",
+    path: "/vaults/:id",
     name: "Vault",
     component: Vault,
   },
