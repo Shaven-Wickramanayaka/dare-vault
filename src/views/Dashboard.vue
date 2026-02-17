@@ -3,7 +3,8 @@ import { useCurrentUser, useDocument, useFirestore } from "vuefire";
 import { useCollection } from "vuefire";
 import { collection, doc, query } from "firebase/firestore";
 import { computed } from "vue";
-import AddVault from "../components/AddVault.vue";
+import JoinVault from "../components/JoinVault.vue";
+import MakeVault from "../components/MakeVault.vue";
 
 const db = useFirestore();
 const user = useCurrentUser();
@@ -21,6 +22,7 @@ const userData = useDocument(userRef);
         </a>
       </li>
     </ul>
-    <AddVault></AddVault>
+    <JoinVault></JoinVault>
+    <MakeVault></MakeVault>
   </div>
 </template>

@@ -1,11 +1,12 @@
 <script setup>
 import { getFirestore, doc, getDoc, updateDoc } from "firebase/firestore";
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 import { getCurrentUser } from "vuefire";
 
 const vaultID = ref("");
 const expectedVaultName = ref("");
-
+const router = useRouter();
 const addVault = async () => {
   const db = getFirestore();
   const vaultRef = doc(db, "vaults", vaultID.value);
@@ -25,12 +26,12 @@ const addVault = async () => {
   await updateDoc(userDocRef, {
     [`joinedVaults.${vaultID.value}`]: expectedVaultName.value,
   });
-  alert("Vault added successfully");
+  router.push("/dashboard");
 };
 </script>
 
 <template>
   <input type="text" placeholder="Vault Id" v-model="vaultID" />
   <input type="text" placeholder="Vault Name" v-model="expectedVaultName" />
-  <button @click="addVault">Submit</button>
+  <button @click="addVault">Join a vault</button>
 </template>

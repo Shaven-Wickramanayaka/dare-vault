@@ -1,13 +1,12 @@
 <script setup>
-import { useCurrentUser, useFirestore } from "vuefire";
-import { useCollection } from "vuefire";
-import { collection } from "firebase/firestore";
-const db = useFirestore();
-const user = useCurrentUser();
-
-const getDare = () => {};
+import { useRoute, useRouter } from "vue-router";
+import StartGame from "../components/StartGame.vue";
+import AddDare from "../components/AddDare.vue";
+const route = useRoute();
+const vaultId = route.params.id;
+alert(vaultId);
 </script>
 <template>
-  <button @click="GetDare" class="p-3">Get Dare</button>
-  <input type="text" />
+  <StartGame :vaultId="vaultId"></StartGame>
+  <AddDare :vaultId="vaultId"></AddDare>
 </template>
