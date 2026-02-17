@@ -16,7 +16,7 @@ const userData = useDocument(userRef);
   <div>
     <h1>Hello {{ user.displayName }}</h1>
     <ul classs="p-2">
-      <li v-for="(vaultName, vaultId) in userData.joinedVaults" :key="vaultId">
+      <li v-for="(vaultName, vaultId) in userData?.joinedVaults" :key="vaultId">
         <a :href="'/vaults/' + vaultId">
           <p>{{ vaultName }}</p>
         </a>

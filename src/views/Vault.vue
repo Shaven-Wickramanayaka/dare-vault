@@ -1,11 +1,12 @@
 <script setup>
 import { useRoute, useRouter } from "vue-router";
-import StartGame from "../components/StartGame.vue";
+import DisplayMembers from "../components/DisplayMembers.vue";
 import AddDare from "../components/AddDare.vue";
+
 const route = useRoute();
 const vaultId = route.params.id;
 </script>
 <template>
-  <StartGame :vaultId="vaultId"></StartGame>
+  <DisplayMembers :vaultId="vaultId"></DisplayMembers>
   <AddDare :vaultId="vaultId"></AddDare>
 </template>

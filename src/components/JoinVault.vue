@@ -4,12 +4,12 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { getCurrentUser } from "vuefire";
 
-const vaultID = ref("");
+const vaultId = ref("");
 const expectedVaultName = ref("");
 const router = useRouter();
 const addVault = async () => {
   const db = getFirestore();
-  const vaultRef = doc(db, "vaults", vaultID.value);
+  const vaultRef = doc(db, "vaults", vaultId.value);
   const vaultSnap = await getDoc(vaultRef);
   if (!vaultSnap.exists()) {
     alert("No vault exists");
@@ -17,21 +17,25 @@ const addVault = async () => {
   }
   const actualVaultName = vaultSnap.data().Name;
   if (actualVaultName !== expectedVaultName.value) {
-    alert("Vault name does not match");
+    alert("Vault name doesnt match");
     return;
   }
   const user = await getCurrentUser();
   const userDocRef = doc(db, "users", user.uid);
+  const vaultDocRef = doc(db, "vaults", vaultId.value);
 
   await updateDoc(userDocRef, {
-    [`joinedVaults.${vaultID.value}`]: expectedVaultName.value,
+    [`joinedVaults.${vaultId.value}`]: expectedVaultName.value,
+  });
+  await updateDoc(vaultDocRef, {
+    [`joinedUsers.${user.uid}`]: user.displayName,
   });
   router.push("/dashboard");
 };
 </script>
 
 <template>
-  <input type="text" placeholder="Vault Id" v-model="vaultID" />
+  <input type="text" placeholder="Vault Id" v-model="vaultId" />
   <input type="text" placeholder="Vault Name" v-model="expectedVaultName" />
   <button @click="addVault">Join a vault</button>
 </template>
