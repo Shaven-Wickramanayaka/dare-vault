@@ -1,7 +1,9 @@
 <script setup>
 import { ref } from "vue";
+import { serverTimestamp, addDoc, collection } from "firebase/firestore";
+import { getCurrentUser, useFirestore } from "vuefire";
 const dareName = ref("");
-const dareSpice = ref();
+const dareSpice = ref(0);
 const props = defineProps({
   vaultId: {
     type: String,
@@ -9,7 +11,23 @@ const props = defineProps({
   },
 });
 
-const addDare = () => {};
+const addDare = async () => {
+  const db = useFirestore();
+  const user = await getCurrentUser();
+  await addDoc(collection(db, "vaults", props.vaultId, "dares"), {
+    name: user.displayName,
+    title: dareName.value,
+    spice: dareSpice.value,
+    createdAt: serverTimestamp(),
+  })
+    .then((data) => {
+      alert("dare added!");
+    })
+    .catch((error) => {
+      alert("Error occured: no dare added");
+      console.log(error);
+    });
+};
 </script>
 <template>
   <input type="text" v-model="dareName" placeholder="Dare title" />

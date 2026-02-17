@@ -4,7 +4,6 @@ import StartGame from "../components/StartGame.vue";
 import AddDare from "../components/AddDare.vue";
 const route = useRoute();
 const vaultId = route.params.id;
-alert(vaultId);
 </script>
 <template>
   <StartGame :vaultId="vaultId"></StartGame>
