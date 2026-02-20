@@ -17,7 +17,7 @@ const makeVault = async () => {
   let createdVaultID = ref("");
   const newVault = await addDoc(collection(db, "vaults"), {
     name: vaultName.value,
-    users: {
+    joinedUsers: {
       [user.uid]: user.displayName,
     },
     createdAt: serverTimestamp(),
