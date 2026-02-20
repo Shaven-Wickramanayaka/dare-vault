@@ -21,6 +21,7 @@ const makeVault = async () => {
       [user.uid]: user.displayName,
     },
     createdAt: serverTimestamp(),
+    owner: user.uid,
   });
   await updateDoc(doc(db, "users", user.uid), {
     [`joinedVaults.${newVault.id}`]: vaultName.value,

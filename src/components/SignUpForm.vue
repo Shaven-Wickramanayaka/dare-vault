@@ -48,6 +48,4 @@ const emailSignIn = () => {
   <input type="text" placeholder="johndoe@gmail.com" v-model="userEmail" />
   <input type="password" placeholder="Hello" v-model="userPassword" />
   <button @click="emailSignIn">Submit</button>
-  <br />
-  <button @click="googleSignIn">Sign in with google</button>
 </template>

@@ -15,7 +15,8 @@ const addVault = async () => {
     alert("No vault exists");
     return;
   }
-  const actualVaultName = vaultSnap.data().Name;
+  const actualVaultName = vaultSnap.data().name;
+  // TODO: FInd why this this stops working for working no reason
   if (actualVaultName !== expectedVaultName.value) {
     alert("Vault name doesnt match");
     return;

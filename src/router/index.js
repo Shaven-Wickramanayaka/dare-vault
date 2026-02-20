@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import Dashboard from "../views/Dashboard.vue";
-import SignUp from "../views/SignUp.vue";
+import Login from "../views/Login.vue";
 import Vault from "../views/Vault.vue";
 import { getCurrentUser } from "vuefire";
 
@@ -14,14 +14,15 @@ const routes = [
     meta: { requiresAuth: true },
   },
   {
-    path: "/signup",
-    name: "SignUp",
-    component: SignUp,
+    path: "/login",
+    name: "Login",
+    component: Login,
   },
   {
     path: "/vaults/:id",
     name: "Vault",
     component: Vault,
+    meta: { requiresAuth: true },
   },
 ];
 const router = createRouter({

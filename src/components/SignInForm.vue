@@ -17,7 +17,16 @@ const errorMessage = ref();
 const db = useFirestore();
 const emailSignIn = () => {
   signInWithEmailAndPassword(getAuth(), userEmail.value, userPassword.value)
-    .then((data) => {
+    .then(async (data) => {
+      const user = data.user;
+      await updateProfile(user, {
+        displayName: userName.value,
+      });
+      await setDoc(doc(db, "users", user.uid), {
+        name: userName.value,
+        email: userEmail.value,
+        createdAt: serverTimestamp(),
+      });
       alert("Sign up Succesfull");
       router.push("/dashboard");
     })
@@ -36,24 +45,6 @@ const emailSignIn = () => {
       }
     });
 };
-const googleSignIn = () => {
-  const provider = new GoogleAuthProvider();
-  signInWithPopup(getAuth(), provider)
-    .then((result) => {
-      router.push("/dashboard");
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
-const user = useCurrentUser();
-try {
-  const docRef = await addDoc(collection(db, "users"), {
-    Name: user.displayName,
-  });
-} catch (e) {
-  console.log(e);
-}
 </script>
 <template>
   <h1>Signup</h1>
@@ -61,6 +52,4 @@ try {
   <input type="password" placeholder="Hello" v-model="userPassword" />
   <button @click="emailSignIn">Submit</button>
   <p v-if="errorMessage">{{ errorMessage }}</p>
-  <br />
-  <button @click="googleSignIn">Sign in with google</button>
 </template>

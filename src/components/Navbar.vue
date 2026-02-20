@@ -11,9 +11,6 @@ export default {
 <template>
   <nav class="bg-gray-800 text-white w-full">
     <ul>
-      <li>Hello</li>
-      <li>World</li>
-      <li>Hi</li>
       <router-link to="/dashboard">Dashboard</router-link>
       <router-link to="/signup">Sign In</router-link>
       <SignOutButton></SignOutButton>
