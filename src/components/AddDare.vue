@@ -14,11 +14,13 @@ const props = defineProps({
 const addDare = async () => {
   const db = useFirestore();
   const user = await getCurrentUser();
+  const randomId = Math.random();
   await addDoc(collection(db, "vaults", props.vaultId, "dares"), {
-    name: user.displayName,
+    creatorName: user.displayName,
     title: dareName.value,
     spice: dareSpice.value,
     createdAt: serverTimestamp(),
+    random: randomId,
   })
     .then((data) => {
       alert("dare added!");
