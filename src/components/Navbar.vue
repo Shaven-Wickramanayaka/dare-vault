@@ -10,11 +10,10 @@ export default {
 </script>
 <template>
   <nav class="bg-gray-800 text-white w-full">
-    <ul>
-      <router-link to="/dashboard">Dashboard</router-link>
-      <router-link to="/signup">Sign In</router-link>
-      <SignOutButton></SignOutButton>
-    </ul>
+    <span> <h1 class="text-left p-4">DareVault</h1> </span
+    ><span>
+      <h1 class="text-right p-4">Log In</h1>
+    </span>
   </nav>
 </template>
 <style lang="css" scoped></style>
