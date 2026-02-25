@@ -23,5 +23,24 @@ const SignOut = () => {
 };
 </script>
 <template>
-  <button @click="SignOut" v-if="loggedIn">Sign out</button>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=logout"
+  />
+  <button
+    @click="SignOut"
+    v-if="loggedIn"
+    class="flex align-middle my-auto mx-auto p-2"
+  >
+    <span class="material-symbols-outlined">logout</span>
+  </button>
 </template>
+<style scoped>
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
+</style>

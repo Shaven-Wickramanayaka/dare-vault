@@ -10,7 +10,9 @@ const username = computed(() => user.value?.displayName || null);
     class="bg-white w-full flex relative justify-between items-center mx-auto px-8 h-20"
   >
     <div class="inline-flex">
-      <Router-Link class="text-xl">Darevault</Router-Link>
+      <Router-Link to="/" class="text-2xl lg:text-3xl font-[Pacifico]"
+        >Darevault</Router-Link
+      >
     </div>
 
     <!-- end logo -->
@@ -41,11 +43,9 @@ const username = computed(() => user.value?.displayName || null);
               type="button"
               class="inline-flex items-center relative px-2 border rounded-full hover:shadow-lg"
             >
-              <h2 v-if="username">Hello {{ username }}</h2>
-              <h2 v-else>Hello Stranger</h2>
-              <div class="block flex-grow-0 flex-shrink-0 h-10 w-12 pl-5">
-                <SignOutButton></SignOutButton>
-              </div>
+              <h2 class="p-2" v-if="username">Hello {{ username }}</h2>
+              <h2 class="p-2" v-else>Hello Stranger</h2>
+              <SignOutButton></SignOutButton>
             </button>
           </div>
         </div>

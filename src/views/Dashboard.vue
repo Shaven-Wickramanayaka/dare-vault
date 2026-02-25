@@ -1,10 +1,9 @@
 <script setup>
 import { useCurrentUser, useDocument, useFirestore } from "vuefire";
-import { useCollection } from "vuefire";
-import { collection, doc, query } from "firebase/firestore";
-import { computed } from "vue";
+import { doc } from "firebase/firestore";
 import JoinVault from "../components/JoinVault.vue";
 import MakeVault from "../components/MakeVault.vue";
+import Navbar from "../components/Navbar.vue";
 
 const db = useFirestore();
 const user = useCurrentUser();
@@ -14,7 +13,9 @@ const userData = useDocument(userRef);
 </script>
 <template>
   <div>
-    <h1>Hello {{ user.displayName }}</h1>
+    <h1 class="text-3xl my-4 w-fit font-[Pacifico]">
+      Hello {{ user.displayName }}
+    </h1>
     <ul classs="p-2">
       <li v-for="(vaultName, vaultId) in userData?.joinedVaults" :key="vaultId">
         <a :href="'/vaults/' + vaultId">
