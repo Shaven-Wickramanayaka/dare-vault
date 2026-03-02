@@ -9,9 +9,18 @@ import {
 } from "firebase/firestore";
 
 import { getCurrentUser } from "vuefire";
-import { ref } from "vue";
+import { ref, useTemplateRef } from "vue";
 const vaultName = ref("");
+const form = useTemplateRef("form");
 const makeVault = async () => {
+  if (vaultName.value == "") {
+    alert("Please enter a name for the vault");
+    return;
+  }
+  if (vaultName.value.trim().length === 0) {
+    alert("Enter a valid vault name");
+    return;
+  }
   const db = getFirestore();
   const user = await getCurrentUser();
   let createdVaultID = ref("");
@@ -29,6 +38,13 @@ const makeVault = async () => {
 };
 </script>
 <template>
-  <input type="text" placeholder="Enter Vault Name" v-model="vaultName" />
-  <button @click="makeVault">Make a new vault</button>
+  <div>
+    <input
+      type="text"
+      placeholder="Enter Vault Name"
+      v-model="vaultName"
+      name="vaultname"
+    />
+    <button @click="makeVault">Make a new vault</button>
+  </div>
 </template>

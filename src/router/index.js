@@ -33,8 +33,8 @@ router.beforeEach(async (to) => {
   if (to.meta.requiresAuth) {
     const user = await getCurrentUser();
     if (!user) {
-      alert("Please sign in to use");
-      return "/signup";
+      alert("Please log in first");
+      return "/login";
     }
   }
 });

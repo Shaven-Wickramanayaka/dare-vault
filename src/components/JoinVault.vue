@@ -1,12 +1,13 @@
 <script setup>
 import { getFirestore, doc, getDoc, updateDoc } from "firebase/firestore";
-import { ref } from "vue";
+import { ref, useTemplateRef } from "vue";
 import { useRouter } from "vue-router";
 import { getCurrentUser } from "vuefire";
 
 const vaultId = ref("");
 const expectedVaultName = ref("");
 const router = useRouter();
+const form = useTemplateRef("form");
 const addVault = async () => {
   const db = getFirestore();
   const vaultRef = doc(db, "vaults", vaultId.value);
@@ -16,7 +17,6 @@ const addVault = async () => {
     return;
   }
   const actualVaultName = vaultSnap.data().name;
-  // TODO: FInd why this this stops working for working no reason
   if (actualVaultName !== expectedVaultName.value) {
     alert("Vault name doesnt match");
     return;
@@ -31,12 +31,29 @@ const addVault = async () => {
   await updateDoc(vaultDocRef, {
     [`joinedUsers.${user.uid}`]: user.displayName,
   });
-  router.push("/dashboard");
+  // Always clears for some reason
+  form.reset();
 };
 </script>
-
 <template>
-  <input type="text" placeholder="Vault Id" v-model="vaultId" />
-  <input type="text" placeholder="Vault Name" v-model="expectedVaultName" />
-  <button @click="addVault">Join a vault</button>
+  <div class="p-2 w-[50%]">
+    <form
+      ref="form"
+      onsubmit="
+        if (/\s/.test(this.vaultname.value)) {
+          alert('No spaces allowed');
+          return false;
+        }
+      "
+    >
+      <input type="text" placeholder="Vault Id" v-model="vaultId" />
+      <input
+        type="text"
+        placeholder="Vault Name"
+        v-model="expectedVaultName"
+        name="vaultname"
+      />
+      <button @click="addVault">Join a vault</button>
+    </form>
+  </div>
 </template>

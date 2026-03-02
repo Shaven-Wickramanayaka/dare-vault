@@ -6,7 +6,7 @@ import Navbar from "../components/Navbar.vue";
   <main>
     <section>
       <div class="w-full text-center">
-        <h1 class="text-3xl p-3 my-4 font-['Atma']">
+        <h1 class="text-3xl p-3 my-4 font-[Raleway]">
           Darevault: lorem ipsum dolor sit amut consecuter sitamut somethin
         </h1>
       </div>
