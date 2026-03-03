@@ -9,6 +9,17 @@ const expectedVaultName = ref("");
 const router = useRouter();
 const form = useTemplateRef("form");
 const addVault = async () => {
+  if (expectedVaultName.value == "" || vaultId.value == "") {
+    alert("Please enter both a vault id and a vault name");
+    return;
+  }
+  if (
+    expectedVaultName.value.trim().length === 0 ||
+    vaultId.value.trim().length === 0
+  ) {
+    alert("Enter a valid vault name and vault id");
+    return;
+  }
   const db = getFirestore();
   const vaultRef = doc(db, "vaults", vaultId.value);
   const vaultSnap = await getDoc(vaultRef);
@@ -16,6 +27,7 @@ const addVault = async () => {
     alert("No vault exists");
     return;
   }
+
   const actualVaultName = vaultSnap.data().name;
   if (actualVaultName !== expectedVaultName.value) {
     alert("Vault name doesnt match");
@@ -31,29 +43,17 @@ const addVault = async () => {
   await updateDoc(vaultDocRef, {
     [`joinedUsers.${user.uid}`]: user.displayName,
   });
-  // Always clears for some reason
-  form.reset();
 };
 </script>
 <template>
   <div class="p-2 w-[50%]">
-    <form
-      ref="form"
-      onsubmit="
-        if (/\s/.test(this.vaultname.value)) {
-          alert('No spaces allowed');
-          return false;
-        }
-      "
-    >
-      <input type="text" placeholder="Vault Id" v-model="vaultId" />
-      <input
-        type="text"
-        placeholder="Vault Name"
-        v-model="expectedVaultName"
-        name="vaultname"
-      />
-      <button @click="addVault">Join a vault</button>
-    </form>
+    <input type="text" placeholder="Vault Id" v-model="vaultId" />
+    <input
+      type="text"
+      placeholder="Vault Name"
+      v-model="expectedVaultName"
+      name="vaultname"
+    />
+    <button @click="addVault">Join a vault</button>
   </div>
 </template>

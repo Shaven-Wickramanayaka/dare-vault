@@ -5,7 +5,8 @@ import router from "./router";
 import { createPinia } from "pinia";
 import { VueFire, VueFireAuth } from "vuefire";
 import firebaseApp, { db, auth } from "./firebase/firebase";
-import './registerServiceWorker'
+import "./registerServiceWorker";
+import "@mdi/font/css/materialdesignicons.css";
 
 const app = createApp(App);
 app.use(router);

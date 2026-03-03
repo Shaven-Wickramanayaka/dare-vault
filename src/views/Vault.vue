@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, computed } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import { useRoute } from "vue-router";
 import DisplayMembers from "../components/DisplayMembers.vue";
 import AddDare from "../components/AddDare.vue";
 import DeleteVault from "../components/DeleteVault.vue";
