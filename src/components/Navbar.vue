@@ -7,7 +7,7 @@ const username = computed(() => user.value?.displayName || null);
 </script>
 <template>
   <nav
-    class="bg-white w-full flex relative justify-between items-center mx-auto px-8 h-20"
+    class="w-full flex relative justify-between items-center mx-auto px-8 h-20 bg-amber -100"
   >
     <div class="inline-flex">
       <Router-Link to="/" class="text-2xl lg:text-3xl font-[Pacifico]"
@@ -27,12 +27,8 @@ const username = computed(() => user.value?.displayName || null);
             <div
               class="flex items-center relative cursor-pointer whitespace-nowrap"
             >
-              <div v-if="username" class="">
-                <Router-Link to="/dashboard">Dashboard</Router-Link>
-              </div>
-              <div v-else class="">
-                <Router-Link to="/login">Log In</Router-Link>
-              </div>
+              <h2 class="p-2" v-if="username">Hello {{ username }}</h2>
+              <h2 class="p-2" v-else>Hello Stranger</h2>
             </div>
           </a>
         </div>
@@ -41,12 +37,16 @@ const username = computed(() => user.value?.displayName || null);
           <div class="inline relative">
             <button
               type="button"
-              class="inline-flex items-center relative px-2 border rounded-full hover:shadow-lg"
+              class="inline-flex items-center relative px-2 border rounded-full hover:shadow-lg mr-3"
             >
-              <h2 class="p-2" v-if="username">Hello {{ username }}</h2>
-              <h2 class="p-2" v-else>Hello Stranger</h2>
-              <SignOutButton></SignOutButton>
+              <div v-if="username" class="p-2">
+                <Router-Link to="/dashboard">Dashboard</Router-Link>
+              </div>
+              <div v-else class="p-2">
+                <Router-Link to="/dashboard"><s>Dashboard</s></Router-Link>
+              </div>
             </button>
+            <SignOutButton></SignOutButton>
           </div>
         </div>
       </div>

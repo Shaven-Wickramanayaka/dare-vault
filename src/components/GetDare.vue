@@ -49,6 +49,15 @@ const getDare = async () => {
 };
 </script>
 <template>
-  <button @click="getDare">Get Dare</button>
-  <h1>{{ dareTitle }}</h1>
+  <div
+    class="flex flex-col items-center justify-center text-center p-2 m-2 border-solid border-2 w-[60%] rounded-lg"
+  >
+    <h1 class="text-4xl p-2 m-2">{{ dareTitle }}</h1>
+    <button
+      @click="getDare"
+      class="p-2 m-2 bg-red-400 rounded-lg hover:bg-red-500"
+    >
+      Get Dare
+    </button>
+  </div>
 </template>

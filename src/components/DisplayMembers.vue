@@ -19,6 +19,7 @@ const vaultUserData = useDocument(doc(db, "vaults", props.vaultId));
     <li
       v-for="(userDisplayname, userId) in vaultUserData?.joinedUsers"
       :key="userId"
+      class="m-2 font-[Raleway] font-medium text-xl"
     >
       <p>{{ userDisplayname }}</p>
     </li>

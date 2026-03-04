@@ -30,17 +30,20 @@ const SignOut = () => {
   <button
     @click="SignOut"
     v-if="loggedIn"
-    class="flex align-middle my-auto mx-auto p-2"
+    class="inline-flex items-center relative border rounded-full hover:shadow-lg py-2 px-3"
   >
-    <span class="material-symbols-outlined">logout</span>
+    <span class="mdi mdi-logout"></span>
+  </button>
+  <button
+    @click="router.push('/login')"
+    v-else
+    class="inline-flex items-center relative border rounded-full hover:shadow-lg px-3 py-2 rotate-180"
+  >
+    <span class="mdi mdi-login"></span>
   </button>
 </template>
 <style scoped>
 .material-symbols-outlined {
-  font-variation-settings:
-    "FILL" 0,
-    "wght" 400,
-    "GRAD" 0,
-    "opsz" 24;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
 }
 </style>

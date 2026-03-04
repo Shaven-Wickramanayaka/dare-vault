@@ -43,17 +43,38 @@ const addVault = async () => {
   await updateDoc(vaultDocRef, {
     [`joinedUsers.${user.uid}`]: user.displayName,
   });
+  expectedVaultName.value = "";
+  expectedVaultName.placeholder = "Vault Name";
+  vaultId.value = "";
+  vaultId.placeholder = "Vault ID";
 };
 </script>
 <template>
-  <div class="p-2 w-[50%]">
-    <input type="text" placeholder="Vault Id" v-model="vaultId" />
+  <div class="flex flex-col text-center p-2 justify-around">
+    <h2 class="font-[Raleway] text-2xl font-bold p-2">Join a Vault</h2>
+    <input
+      type="text"
+      placeholder="Vault Id"
+      v-model="vaultId"
+      class="m-1 p-1"
+    />
     <input
       type="text"
       placeholder="Vault Name"
       v-model="expectedVaultName"
       name="vaultname"
+      class="m1 p-1"
     />
-    <button @click="addVault">Join a vault</button>
+    <button
+      @click="addVault"
+      class="p-2 rounded-lg mt-1.5 font-[Raleway] font-medium bg-red-400 hover:bg-red-500"
+    >
+      Search and Add
+    </button>
   </div>
 </template>
+<style scoped>
+::placeholder {
+  text-align: center;
+}
+</style>

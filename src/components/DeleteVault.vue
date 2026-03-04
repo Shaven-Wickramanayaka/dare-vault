@@ -22,6 +22,15 @@ const deleteVault = async () => {
 };
 </script>
 <template>
-  <button @click="deleteVault">Delete This Vault</button>
-  <p>This action is irreversible. There is no confirmation screen!</p>
+  <div
+    class="bg-amber-400 rounded-lg p-2 mt-30 h-30 flex flex-col justify-center items-center"
+  >
+    <p>This action is irreversible. There is no confirmation screen!</p>
+    <button
+      class="w-[50%] h-[40%] bg-red-700 p-2 rounded-lg m-3 hover:bg-red-950"
+      @click="deleteVault"
+    >
+      Delete This Vault
+    </button>
+  </div>
 </template>

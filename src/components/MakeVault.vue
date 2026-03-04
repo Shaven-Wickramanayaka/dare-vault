@@ -37,6 +37,7 @@ const makeVault = async () => {
     [`joinedVaults.${newVault.id}`]: vaultName.value,
   });
   vaultName.value = "";
+  vaultName.placeholder = "Enter Vault Name";
   // router.push("/dashboard");
 };
 </script>
