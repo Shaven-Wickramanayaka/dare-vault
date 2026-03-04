@@ -10,7 +10,7 @@ const db = useFirestore();
 const user = useCurrentUser();
 const joinVault = ref(true);
 const makeVault = ref(false);
-const listVault = ref(false);
+const listVaults = ref(false);
 const userRef = doc(db, "users", user.value.uid);
 const userData = useDocument(userRef);
 const vaultsJoined = computed(
@@ -20,17 +20,17 @@ const noVaults = computed(() => vaultsJoined.value === 0);
 const toggleJoinVaults = () => {
   joinVault.value = true;
   makeVault.value = false;
-  listVault = false;
+  listVaults.value = false;
 };
 const toggleMakeVaults = () => {
   joinVault.value = false;
   makeVault.value = true;
-  listVault = false;
+  listVaults.value = false;
 };
 const toggleListVaults = () => {
   joinVault.value = false;
   makeVault.value = false;
-  listVault = true;
+  listVaults.value = true;
 };
 </script>
 <template>
@@ -42,24 +42,9 @@ const toggleListVaults = () => {
     <h1 class="text-3xl my-3 w-fit font-[Pacifico] text-red-300 p-3">
       Hello {{ user.displayName }}
     </h1>
-    <div
+    <!-- <div
       class="p-5 flex flex-col items-center justify-center text-center w-[80%] m-3"
-    >
-      <h2 class="font-[Raleway] text-2xl font-bold">Vaults</h2>
-      <h3 v-if="noVaults" class="p-2 mt-2 font-[Raleway] font-">
-        You have no vaults. Join or make a vault
-      </h3>
-      <ul v-else class="p-2">
-        <li
-          v-for="(vaultName, vaultId) in userData?.joinedVaults"
-          :key="vaultId"
-        >
-          <a :href="'/vaults/' + vaultId">
-            <p>{{ vaultName }}</p>
-          </a>
-        </li>
-      </ul>
-    </div>
+    ></div> -->
     <div class="bg-gray-400 w-[60%] flex justify-around rounded-xl">
       <span
         class="mdi mdi-note-plus text-[5vh] md:text-[6vh]"
@@ -77,7 +62,11 @@ const toggleListVaults = () => {
     <JoinVault v-show="joinVault" />
     <MakeVault v-show="makeVault" />
     <div v-show="listVaults">
-      <ul class="p-2">
+      <h2 class="font-[Raleway] text-2xl font-bold">Vaults</h2>
+      <h3 v-if="noVaults" class="p-2 mt-2 font-[Raleway] font-">
+        You have no vaults. Join or make a vault
+      </h3>
+      <ul v-else class="p-2">
         <li
           v-for="(vaultName, vaultId) in userData?.joinedVaults"
           :key="vaultId"
