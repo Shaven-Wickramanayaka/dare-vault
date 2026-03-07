@@ -7,7 +7,7 @@ const username = computed(() => user.value?.displayName || null);
 </script>
 <template>
   <nav
-    class="w-full flex flex-wrap justify-between items-center mx-auto px-3 sm:px-8 py-3 bg-[#b6d6F2] gap-2"
+    class="w-full flex justify-between items-center mx-auto px-3 sm:px-8 py-3 bg-[#b6d6F2] gap-2"
   >
     <div class="inline-flex">
       <Router-Link

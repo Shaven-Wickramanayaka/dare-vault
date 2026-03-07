@@ -6,8 +6,8 @@ import Navbar from "../components/Navbar.vue";
   <main>
     <section>
       <div class="w-full text-center">
-        <h1 class="text-3xl p-3 font-[Raleway] font-medium my-5 text-[#E83338]">
-          Removing awkward pauses until someone thinks of a dare since 2026
+        <h1 class="text-4xl p-3 font-[Raleway] font-bold my-5 text-[#E83338]">
+          Removing awkward pauses since 2026
         </h1>
       </div>
       <div class="w-full flex justify-center align-middle">

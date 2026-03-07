@@ -47,9 +47,37 @@ const emailSignIn = () => {
 };
 </script>
 <template>
-  <h1>Signup</h1>
-  <input type="text" placeholder="johndoe@gmail.com" v-model="userEmail" />
-  <input type="password" placeholder="Hello" v-model="userPassword" />
-  <button @click="emailSignIn">Submit</button>
-  <p v-if="errorMessage">{{ errorMessage }}</p>
+  <div
+    class="flex flex-col justify-center items-center bg-[#B6D6F2] p-3 rounded-xl"
+  >
+    <h1 class="text-3xl mb-3 text-[#010A26] font-[Pacifico]">Signup</h1>
+    <input
+      type="text"
+      placeholder="Email"
+      v-model="userEmail"
+      class="p-2 m-2"
+    />
+    <input
+      type="password"
+      placeholder="Password"
+      v-model="userPassword"
+      class="p-2 m-2"
+    />
+    <button
+      @click="emailSignIn"
+      class="p-2 m-2 bg-[#E83338] text-white rounded-lg hover:bg-[#a4262a]"
+    >
+      Submit
+    </button>
+    <p v-if="errorMessage" class="p-3 font-[Raleway] font-bold">
+      {{ errorMessage }}
+    </p>
+  </div>
 </template>
+<style scoped>
+::placeholder {
+  font-family: "Raleway";
+  text-align: center;
+  color: #011640;
+}
+</style>

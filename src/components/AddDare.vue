@@ -29,6 +29,8 @@ const addDare = async () => {
       alert("Error occured: no dare added");
       console.log(error);
     });
+  dareName.value = "";
+  dareName.placeholder = "Dare Title";
 };
 </script>
 <template>

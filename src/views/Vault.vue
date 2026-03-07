@@ -75,7 +75,7 @@ console.log(isOwner);
       <AddDare :vaultId="vaultId"></AddDare>
     </div>
 
-    <div v-show="share" class="text-center p-3">
+    <div v-show="share" class="text-center p-3 font-[Raleway] font-medium">
       <h3 class="p-2 text-2xl">{{ vaultId }}</h3>
       <h3 class="p-2 text-2xl">{{ vaultReactive.name }}</h3>
       <small>Use this to invite other people to this vault!</small>
