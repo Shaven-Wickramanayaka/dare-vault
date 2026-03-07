@@ -10,9 +10,14 @@ const newUserToggle = () => {
 };
 </script>
 <template>
-  <SignUpForm v-if="newUser" />
-  <SignInForm v-else></SignInForm>
-  <GoogleSignIn></GoogleSignIn>
-  <button v-if="newUser" @click="newUserToggle">Already have an account</button>
-  <button v-else @click="newUserToggle">Already have an account</button>
+  <Navbar></Navbar>
+  <div class="flex flex-col justify-center items-center h-screen">
+    <SignUpForm v-if="newUser" />
+    <SignInForm v-else></SignInForm>
+    <GoogleSignIn></GoogleSignIn>
+    <button v-if="newUser" @click="newUserToggle">
+      Already have an account
+    </button>
+    <button v-else @click="newUserToggle">Just getting Started?</button>
+  </div>
 </template>

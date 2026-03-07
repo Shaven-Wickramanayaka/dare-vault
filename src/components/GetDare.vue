@@ -50,7 +50,7 @@ const getDare = async () => {
 </script>
 <template>
   <div
-    class="flex flex-col items-center justify-center text-center p-2 m-2 border-solid border-2 w-[60%] rounded-lg"
+    class="flex flex-col items-center justify-center text-center p-2 m-2 border-solid border-2 w-[60vw] rounded-lg"
   >
     <h1 class="text-4xl p-2 m-2">{{ dareTitle }}</h1>
     <button

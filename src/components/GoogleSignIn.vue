@@ -29,5 +29,11 @@ const googleSignIn = async () => {
 </script>
 
 <template>
-  <button @click="googleSignIn">Sign in with google</button>
+  <button
+    @click="googleSignIn"
+    class="m-3 p-2 bg-[#E83338] rounded-lg text-white hover:bg-[#a4262a]"
+  >
+    <span class="mdi mdi-google text-[2.4vh] mr-2" aria-hidden="true"></span
+    >Sign in with google
+  </button>
 </template>

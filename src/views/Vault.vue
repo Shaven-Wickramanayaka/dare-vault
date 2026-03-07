@@ -56,7 +56,7 @@ console.log(isOwner);
       {{ vaultReactive.name }}
     </h1>
     <GetDare :vaultId="vaultId"></GetDare>
-    <div class="bg-gray-400 w-[60%] flex justify-around rounded-xl">
+    <div class="bg-gray-400 w-[60vw] flex justify-around rounded-xl">
       <span
         class="mdi mdi-account text-[5vh] md:text-[6vh]"
         @click="toggleUsers"
