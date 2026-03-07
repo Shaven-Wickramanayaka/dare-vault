@@ -26,25 +26,28 @@ const username = computed(() => user.value?.displayName || null);
               <h2 class="p-2 text-sm sm:text-base" v-if="username">
                 Hello {{ username }}
               </h2>
-              <h2 class="p-2 text-sm sm:text-base" v-else>Hello Stranger</h2>
+              <h2 class="p-2 text-sm sm:text-base font-[Raleway]" v-else>
+                Hello Stranger
+              </h2>
             </div>
           </a>
         </div>
 
-        <div class="block">
-          <div class="inline relative">
-            <button
-              type="button"
-              class="inline-flex items-center relative px-2 border rounded-full mr-3 font-[Raleway]"
-            >
-              <div v-if="username" class="p-2">
-                <Router-Link to="/dashboard">Dashboard</Router-Link>
-              </div>
-              <div v-else class="p-2">
-                <Router-Link to="/dashboard"><s>Dashboard</s></Router-Link>
-              </div>
-            </button>
-            <SignOutButton></SignOutButton>
+        <div class="flex flex-col sm:flex-row items-end sm:items-center gap-2">
+          <button
+            type="button"
+            class="inline-flex items-center relative px-2 border rounded-full font-[Raleway] shrink-0 whitespace-nowrap"
+          >
+            <div v-if="username" class="p-1">
+              <Router-Link to="/dashboard">Dashboard</Router-Link>
+            </div>
+            <div v-else class="p-1">
+              <Router-Link to="/dashboard"><s>Dashboard</s></Router-Link>
+            </div>
+          </button>
+
+          <div class="shrink-0">
+            <SignOutButton />
           </div>
         </div>
       </div>
