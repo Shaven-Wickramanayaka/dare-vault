@@ -38,10 +38,10 @@ const username = computed(() => user.value?.displayName || null);
             type="button"
             class="inline-flex items-center relative px-2 border rounded-full font-[Raleway] shrink-0 whitespace-nowrap"
           >
-            <div v-if="username" class="p-1">
+            <div v-if="username" class="p-2">
               <Router-Link to="/dashboard">Dashboard</Router-Link>
             </div>
-            <div v-else class="p-1">
+            <div v-else class="p-2">
               <Router-Link to="/dashboard"><s>Dashboard</s></Router-Link>
             </div>
           </button>
