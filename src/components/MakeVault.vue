@@ -43,7 +43,9 @@ const makeVault = async () => {
 </script>
 <template>
   <div class="flex flex-col text-center p-2 justify-around">
-    <h2 class="font-[Raleway] text-2xl font-bold p-2">Make a Vault</h2>
+    <h2 class="font-[Raleway] text-2xl font-bold p-2 text-[#010A26]">
+      Make a Vault
+    </h2>
     <input
       type="text"
       placeholder="Enter Vault Name"
@@ -53,7 +55,7 @@ const makeVault = async () => {
     />
     <button
       @click="makeVault"
-      class="p-2 rounded-lg mt-1 font-[Raleway] font-medium bg-red-400 hover:bg-red-500"
+      class="p-2 rounded-lg mt-1 font-[Raleway] font-medium bg-[#E83338] hover:bg-[#bc2b30] text-white"
     >
       Make a new vault
     </button>

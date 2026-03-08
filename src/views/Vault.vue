@@ -16,6 +16,7 @@ const owner = ref(null);
 const db = useFirestore();
 const vaultRef = doc(db, "vaults", vaultId);
 const vaultReactive = useDocument(vaultRef);
+
 onMounted(async () => {
   const vault = await getDoc(vaultRef);
   console.log(vault);
@@ -48,15 +49,15 @@ console.log(isOwner);
 </script>
 <template>
   <Navbar></Navbar>
-  <div class="flex flex-col items-center">
+  <div class="flex flex-col items-center bg-amber-50">
     <h1
-      class="p-2 m-2 text-2xl cursor-pointer font-[Pacifico] text-red-300"
+      class="p-2 m-2 text-2xl md:text-3xl cursor-pointer font-[Pacifico] text-[#010A26]"
       @click="router.push('/dashboard')"
     >
       {{ vaultReactive.name }}
     </h1>
     <GetDare :vaultId="vaultId"></GetDare>
-    <div class="bg-gray-400 w-[60vw] flex justify-around rounded-xl">
+    <div class="w-[60vw] flex justify-around rounded-xl">
       <span
         class="mdi mdi-account text-[5vh] md:text-[6vh]"
         @click="toggleUsers"
@@ -70,7 +71,10 @@ console.log(isOwner);
         @click="toggleShare"
       ></span>
     </div>
-    <DisplayMembers v-show="users" :vaultId="vaultId"></DisplayMembers>
+    <div v-show="users">
+      <DisplayMembers :vaultId="vaultId"></DisplayMembers>
+    </div>
+
     <div v-show="addDare">
       <AddDare :vaultId="vaultId"></AddDare>
     </div>

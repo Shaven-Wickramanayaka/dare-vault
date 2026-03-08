@@ -15,6 +15,14 @@ const addDare = async () => {
   const db = useFirestore();
   const user = await getCurrentUser();
   const randomId = Math.random();
+  if (dareName.value == "") {
+    alert("Please enter a dare title");
+    return;
+  }
+  if (dareName.value.trim().length === 0) {
+    alert("Enter a valid dare title");
+    return;
+  }
   await addDoc(collection(db, "vaults", props.vaultId, "dares"), {
     creatorName: user.displayName,
     title: dareName.value,
@@ -42,10 +50,17 @@ const addDare = async () => {
       placeholder="Dare title"
       class="p-2 mt-0.5"
     />
-    <input type="range" min="0" max="3" v-model="dareSpice" class="p-2 mt-2" />
+    <input
+      hidden="true"
+      type="range"
+      min="0"
+      max="3"
+      v-model="dareSpice"
+      class="p-2 mt-2"
+    />
     <button
       @click="addDare"
-      class="p-2 bg-red-400 m-2 hover:bg-red-500 rounded-lg"
+      class="p-2 bg-[#E83338] hover:bg-[#bc2b30] mt-2 rounded-lg"
     >
       Add dare
     </button>

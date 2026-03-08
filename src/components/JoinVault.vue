@@ -51,7 +51,9 @@ const addVault = async () => {
 </script>
 <template>
   <div class="flex flex-col text-center p-2 justify-around">
-    <h2 class="font-[Raleway] text-2xl font-bold p-2">Join a Vault</h2>
+    <h2 class="font-[Raleway] text-2xl font-bold p-2 text-[#010A26]">
+      Join a Vault
+    </h2>
     <input
       type="text"
       placeholder="Vault Id"

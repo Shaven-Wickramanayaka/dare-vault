@@ -40,8 +40,12 @@ const toggleListVaults = () => {
     rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add_notes"
   /> -->
-  <div class="flex flex-col items-center justify-center md:h-screen h-201">
-    <h1 class="text-3xl my-3 w-fit font-[Pacifico] text-[#010A26] p-3">
+  <div
+    class="flex flex-col items-center justify-center md:h-screen h-201 text-center bg-amber-50"
+  >
+    <h1
+      class="text-3xl my-3 w-fit font-[Pacifico] text-[#010A26] p-3 text-center"
+    >
       Hello {{ user.displayName }}
     </h1>
     <!-- <div
@@ -67,8 +71,13 @@ const toggleListVaults = () => {
       v-show="listVaults"
       class="flex flex-col text-center p-2 justify-around"
     >
-      <h2 class="font-[Raleway] text-2xl font-bold p-2">Vaults</h2>
-      <h3 v-if="noVaults" class="p-2 mt-2 font-[Raleway] font-bold">
+      <h2 class="font-[Raleway] text-2xl font-bold p-2 text-[#010A26]">
+        Vaults
+      </h2>
+      <h3
+        v-if="noVaults"
+        class="p-2 mt-2 font-[Raleway] font-bold text-[#E83338]"
+      >
         You have no vaults. Join or make a vault
       </h3>
       <ul v-else class="p-2 mb-0.5 font-[Raleway] text-lg font-medium">
