@@ -1,5 +1,15 @@
-# Vue 3 + Vite
+# Darevault
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+> A place to store the devious dares you think of during your mundane day to day and unleash their full force to your innocent friends.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+## Background
+
+> I've been wanting to make an app like this for quite a while, but was always discouraged due to everyone I know not being on Android, which would mean I had to make 2 different apps and a seperate website to make sure everyone can access the site. The first major breakthrough came with my discovery of PWAs, which are websites that can be installed on your devices and are platform independent. They do have some downsides, like not being able to access the file system in the case of IOS. By using Vue and Firebase I was able to create a website that added dares to a predefined vault that users are only able to access through invites.
+
+## Technologies Used
+
+- Vue.JS
+- Firebase (Firestore, Authentication and Hosting)
+- Vite
+
+### Made for Flavourtown by HackClub

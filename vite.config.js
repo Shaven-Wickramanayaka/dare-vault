@@ -55,14 +55,14 @@ export default defineConfig({
         screenshots: [
           {
             src: "screenshots/desktop-home.png",
-            sizes: "1920x1080",
+            sizes: "1879x876",
             type: "image/png",
             form_factor: "wide",
             label: "Darevault desktop home",
           },
           {
             src: "screenshots/mobile-home.png",
-            sizes: "1080x1920",
+            sizes: "738x1600",
             type: "image/png",
             label: "Darevault mobile home",
           },
