@@ -16,17 +16,10 @@ const firebaseApp = initializeApp(firebaseConfig);
 export const auth = getAuth(firebaseApp);
 export const db = getFirestore(firebaseApp);
 export const functions = getFunctions(firebaseApp);
-
-// // Logic to switch to emulators during local development
-// if (location.hostname === "localhost") {
-//   // Firestore Emulator
-//   connectFirestoreEmulator(db, "127.0.0.1", 8080);
-
-//   // Auth Emulator
-//   connectAuthEmulator(auth, "http://127.0.0.1:9099");
-
-//   // Functions Emulator (Matches the port from step 1)
-//   connectFunctionsEmulator(functions, "127.0.0.1", 5001);
-// }
+if (location.hostname === "localhost") {
+  connectFirestoreEmulator(db, "127.0.0.1", 8080);
+  connectAuthEmulator(auth, "http://127.0.0.1:9099");
+  connectFunctionsEmulator(functions, "127.0.0.1", 5001);
+}
 
 export default firebaseApp;

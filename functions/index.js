@@ -7,20 +7,26 @@ exports.deleteVaultFull = onCall(async (request) => {
     throw new HttpsError("unauthenticated", "You must be logged in.");
   }
   const db = getFirestore();
-  const vaultPath = `vaults/${request.data.vaultId}`;
   const vaultId = request.data.vaultId;
-  if (!vaultPath || !vaultId) {
+  if (typeof vaultId !== "string" || vaultId.trim().length === 0) {
     throw new HttpsError(
         "invalid-argument",
-        "vaultPath and vaultId are required.",
+        "vaultId is required.",
     );
   }
+  const vaultPath = `vaults/${vaultId}`;
   const vaultRef = db.doc(vaultPath);
   const vaultSnap = await vaultRef.get();
   if (!vaultSnap.exists) {
     throw new HttpsError("not-found", "Vault not found.");
   }
   const vault = vaultSnap.data();
+  if (vault.owner !== request.auth.uid) {
+    throw new HttpsError(
+        "permission-denied",
+        "Only the vault owner can delete this vault.",
+    );
+  }
   const userIds = Object.keys(vault.joinedUsers || {});
   const writer = db.bulkWriter();
   for (const uid of userIds) {

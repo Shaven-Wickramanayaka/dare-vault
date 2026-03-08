@@ -46,7 +46,7 @@ const emailSignIn = () => {
   <div
     class="flex flex-col justify-center items-center bg-[#B6D6F2] p-3 rounded-xl"
   >
-    <h1 class="text-3xl mb-3 text-[#010A26] font-[Pacifico]">Signup</h1>
+    <h1 class="text-3xl mb-3 text-[#010A26] font-[Pacifico]">Sign Up</h1>
     <input
       type="text"
       placeholder="Display Name"

@@ -5,6 +5,7 @@ import JoinVault from "../components/JoinVault.vue";
 import MakeVault from "../components/MakeVault.vue";
 import Navbar from "../components/Navbar.vue";
 import { computed, ref } from "vue";
+import Footer from "../components/Footer.vue";
 
 const db = useFirestore();
 const user = useCurrentUser();
@@ -39,14 +40,14 @@ const toggleListVaults = () => {
     rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add_notes"
   /> -->
-  <div class="flex flex-col items-center">
-    <h1 class="text-3xl my-3 w-fit font-[Pacifico] text-red-300 p-3">
+  <div class="flex flex-col items-center justify-center md:h-screen h-201">
+    <h1 class="text-3xl my-3 w-fit font-[Pacifico] text-[#010A26] p-3">
       Hello {{ user.displayName }}
     </h1>
     <!-- <div
       class="p-5 flex flex-col items-center justify-center text-center w-[80%] m-3"
     ></div> -->
-    <div class="bg-gray-400 w-[60%] flex justify-around rounded-xl">
+    <div class="w-[70%] flex justify-around rounded-xl p-2">
       <span
         class="mdi mdi-magnify text-[5vh] md:text-[6vh]"
         @click="toggleJoinVaults"
@@ -83,4 +84,5 @@ const toggleListVaults = () => {
       </ul>
     </div>
   </div>
+  <Footer></Footer>
 </template>

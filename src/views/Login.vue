@@ -4,6 +4,7 @@ import SignUpForm from "../components/SignUpForm.vue";
 import SignInForm from "../components/SignInForm.vue";
 import { ref } from "vue";
 import GoogleSignIn from "../components/GoogleSignIn.vue";
+import Footer from "../components/Footer.vue";
 let newUser = ref(true);
 const newUserToggle = () => {
   newUser.value = !newUser.value;
@@ -30,4 +31,5 @@ const newUserToggle = () => {
       Just getting Started?
     </button>
   </div>
+  <Footer></Footer>
 </template>

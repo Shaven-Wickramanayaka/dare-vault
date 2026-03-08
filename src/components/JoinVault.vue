@@ -67,7 +67,7 @@ const addVault = async () => {
     />
     <button
       @click="addVault"
-      class="p-2 rounded-lg mt-1.5 font-[Raleway] font-medium bg-red-400 hover:bg-red-500"
+      class="p-2 rounded-lg mt-1.5 font-[Raleway] font-medium bg-[#E83338] hover:bg-[#bc2b30] text-white"
     >
       Search and Add
     </button>

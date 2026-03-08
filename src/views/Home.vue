@@ -1,10 +1,30 @@
 <script setup>
 import Navbar from "../components/Navbar.vue";
+import Footer from "../components/Footer.vue";
+import { ref, onMounted } from "vue";
+import gsap from "gsap";
+
+const images = [["/background.png"]];
+
+const ribbonRefs = ref([]);
+
+onMounted(() => {
+  ribbonRefs.value.forEach((ribbon) => {
+    const track = ribbon.querySelector(".ribbon-track");
+    const trackHeight = track.scrollHeight / 2;
+    gsap.to(track, {
+      y: -trackHeight,
+      duration: 10 + gsap.utils.random(1, 5) * 7,
+      ease: "none",
+      repeat: -1,
+    });
+  });
+});
 </script>
 <template>
   <Navbar></Navbar>
   <main>
-    <section>
+    <!-- <section>
       <div class="w-full text-center">
         <h1 class="text-4xl p-3 font-[Raleway] font-bold my-5 text-[#E83338]">
           Removing awkward pauses since 2026
@@ -28,6 +48,44 @@ import Navbar from "../components/Navbar.vue";
       <small class="font-[Pacifico] font-light p-2"
         >We are not liable for any broken friendships</small
       >
+    </section> -->
+    <section
+      class="flex flex-col md:flex-row flex-wrap items-center justify-between h-120 bg-amber-50"
+    >
+      <div class="flex-3 text-center">
+        <h1
+          class="font-[Pacifico] text-2xl md:text-3xl lg:text-4xl mt-8 md:mt-0 text-[#010A26]"
+        >
+          Darevault makes it easy to expose your friends
+        </h1>
+      </div>
+      <div class="flex-2 justify-center shrink w-80">
+        <img src="https://placehold.co/400" alt="" class="" />
+      </div>
+      <!-- <div
+        v-for="(imgs, index) in images"
+        :key="index"
+        class="ribbon"
+        :ref="(el) => (ribbonRefs[index] = el)"
+      >
+        <div class="ribbon-track flex flex-col">
+          <img
+            v-for="(img, i) in [...imgs, ...imgs]"
+            :key="i"
+            :src="img"
+            class="w-full object-cover h-90"
+          />
+        </div>
+      </div> -->
     </section>
+    <section
+      class="h-screen flex justify-center items-center-safe text-center font-[Raleway] font-medium bg-amber-50"
+    >
+      <p class="p-2 w-60 lg:w-70 text-2xl lg:text-3xl text-[#010A26]">
+        "Spend less time worrying about what devious questions you can ask your
+        friends and more time laughing at them." ❤️🎊
+      </p>
+    </section>
+    <Footer></Footer>
   </main>
 </template>
