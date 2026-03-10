@@ -54,13 +54,13 @@ onMounted(() => {
     >
       <div class="flex-3 text-center">
         <h1
-          class="font-[Pacifico] text-2xl md:text-3xl lg:text-4xl mt-8 md:mt-0 text-[#010A26]"
+          class="font-[Pacifico] text-2xl md:text-3xl lg:text-4xl mt-8 md:mt-0 text-[#010A26] underline"
         >
           Darevault makes it easy to expose your friends
         </h1>
       </div>
       <div class="flex-2 justify-center shrink w-80">
-        <img src="https://placehold.co/400" alt="" class="" />
+        <img src="/Hero.png" alt="" class="rounded-lg" width="400" />
       </div>
       <!-- <div
         v-for="(imgs, index) in images"

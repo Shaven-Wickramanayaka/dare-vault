@@ -30,15 +30,18 @@ const SignOut = () => {
   <button
     @click="SignOut"
     v-if="loggedIn"
-    class="inline-flex items-center relative border rounded-full hover:shadow-lg py-2 px-3"
+    class="inline-flex items-center relative border rounded-full py-2 px-3"
   >
+    <h4 class="mr-1 items-center">Log Out</h4>
     <span class="mdi mdi-logout"></span>
   </button>
   <button
     @click="router.push('/login')"
     v-else
-    class="inline-flex items-center relative border rounded-full hover:shadow-lg px-3 py-2 rotate-180"
+    class="inline-flex items-center relative border rounded-full px-3 py-2"
   >
+    <h4 class="mr-1 items-center">Log In</h4>
+
     <span class="mdi mdi-login"></span>
   </button>
 </template>
