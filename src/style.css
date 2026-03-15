@@ -2,3 +2,11 @@
 
 @import "tailwindcss";
 @import "tailwindcss/preflight.css" layer(base);
+:root {
+  font-size: 16px;
+  --background-dark: #011211;
+  --background-light: #fbfffe;
+  --primary-accent: #6b0504;
+  --secondary-accent: #be380c;
+  --highlight: #e6af2e;
+}

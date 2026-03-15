@@ -35,11 +35,67 @@ const toggleListVaults = () => {
 };
 </script>
 <template>
-  <Navbar></Navbar>
-  <!-- <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add_notes"
-  /> -->
+  <nav
+    class="flex flex-row h-11.25 items-center bg-(--background-dark) justify-between"
+  >
+    <h1
+      class="ml-6 mt-5 text-[1.3rem] font-[Pacifico] text-(--secondary-accent) justify-self-start"
+    >
+      Hello {{ user.displayName }}
+    </h1>
+    <div class="mr-3">
+      <!-- <span
+        class="mdi mdi-magnify text-[1.5rem] bg-[#B6D6F2] text-[#E83338] rounded-4xl px-1 mx-1"
+      ></span>
+      <span
+        class="mdi mdi-note-plus text-[1.5rem] bg-[#B6D6F2] text-[#E83338] rounded-4xl px-1 mx-1"
+      ></span>
+      <span
+        class="mdi mdi-sort text-[1.5rem] bg-[#B6D6F2] text-[#E83338] rounded-4xl px-1 mx-1"
+      ></span> -->
+    </div>
+  </nav>
+  <div class="flex flex-col bg-(--background-dark)">
+    <div
+      class="bg-(--primary-accent) h-30 aspect-3/2 m-6 rounded-2xl flex justify-around items-center"
+    >
+      <div class="flex flex-col justify-center">
+        <span
+          class="mdi mdi-magnify text-[5vh] md:text-[6vh] flex flex-col text-center text-(--background-light)"
+          @click="toggleJoinVaults"
+        >
+        </span>
+        <legend
+          class="text-[1rem] text-(--background-light) font-[Raleway] font-bold tracking-wide"
+        >
+          Join vault
+        </legend>
+      </div>
+      <div class="flex flex-col justify-center">
+        <span
+          class="mdi mdi-note-plus text-[5vh] md:text-[6vh] text-center text-(--highlight)"
+          @click="toggleMakeVaults"
+        ></span>
+        <legend
+          class="text-[1rem] text-(--background-light) font-[Raleway] font-bold tracking-wide"
+        >
+          Make vault
+        </legend>
+      </div>
+      <div class="flex flex-col justify-center">
+        <span
+          class="mdi mdi-sort text-[5vh] md:text-[6vh] text-center text-(--background-light)"
+          @click="toggleListVaults"
+        ></span>
+        <legend
+          class="text-[1rem] text-(--background-light) font-[Raleway] font-bold tracking-wide"
+        >
+          List vaults
+        </legend>
+      </div>
+    </div>
+    <div></div>
+  </div>
   <div
     class="flex flex-col items-center justify-center md:h-screen h-201 text-center bg-amber-50"
   >

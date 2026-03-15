@@ -13,7 +13,7 @@ const username = computed(() => user.value?.displayName || null);
       <Router-Link
         to="/"
         class="text-2xl lg:text-3xl font-[Pacifico] text-[#010A26]"
-        >Darevault</Router-Link
+        >darevault</Router-Link
       >
     </div>
     <div class="flex-initial">
