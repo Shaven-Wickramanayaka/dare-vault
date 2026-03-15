@@ -43,7 +43,7 @@ const addDare = async () => {
 </script>
 <template>
   <div class="flex flex-col justify-center text-center">
-    <h2 class="p-2 m-2 text-2xl font-medium">Add Dare</h2>
+    <h2 class="p-2 m-2 text-2xl font-medium text-(--text-on-dark)">Add Dare</h2>
     <input
       type="text"
       v-model="dareName"

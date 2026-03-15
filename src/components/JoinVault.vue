@@ -50,26 +50,43 @@ const addVault = async () => {
 };
 </script>
 <template>
-  <div class="flex flex-col text-center p-2 justify-around">
-    <h2 class="font-[Raleway] text-2xl font-bold p-2 text-[#010A26]">
+  <div class="flex flex-col text-center p-2 justify-between">
+    <h2
+      class="font-[Raleway] text-2xl font-bold p-2 text-(--text-on-dark) mb-1.5"
+    >
       Join a Vault
     </h2>
-    <input
-      type="text"
-      placeholder="Vault Id"
-      v-model="vaultId"
-      class="m-1 p-1"
-    />
-    <input
-      type="text"
-      placeholder="Vault Name"
-      v-model="expectedVaultName"
-      name="vaultname"
-      class="m1 p-1"
-    />
+    <div class="flex items-center flex-col justify-between">
+      <label
+        for="vault-name"
+        class="p-1 font-[Raleway] font-bold tracking-wider text-(--text-on-dark) text-[0.8rem]"
+        >Vault Name:
+      </label>
+      <input
+        type="text"
+        placeholder="Very Cool Vault"
+        v-model="expectedVaultName"
+        name="vault-name"
+        class="m1 p-1 border-2 rounded-lg text-(--color-mint-bright)"
+      />
+      <label
+        for="vault-id"
+        class="p-1 font-[Raleway] font-bold tracking-wider text-(--text-on-dark) text-[0.8rem]"
+        >Vault ID:
+      </label>
+      <input
+        name="vault-id"
+        type="text"
+        placeholder="dfdsgfrehjiwbnJNBiubi"
+        v-model="vaultId"
+        class="m-1 p-1 border-2 rounded-lg text-(--color-mint-bright)"
+      />
+    </div>
+    <div class="flex items-center justify-between"></div>
+
     <button
       @click="addVault"
-      class="p-2 rounded-lg mt-1.5 font-[Raleway] font-medium bg-[#E83338] hover:bg-[#bc2b30] text-white"
+      class="p-2 rounded-lg mt-2.5 font-[Raleway] font-medium bg-(--color-sage-light) hover:bg-(--secondary-accent) text-(--color-deep-forest) active:bg-(--highlight)"
     >
       Search and Add
     </button>
@@ -78,5 +95,6 @@ const addVault = async () => {
 <style scoped>
 ::placeholder {
   text-align: center;
+  color: var(--color-sage-light);
 }
 </style>

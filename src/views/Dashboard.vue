@@ -6,6 +6,7 @@ import MakeVault from "../components/MakeVault.vue";
 import Navbar from "../components/Navbar.vue";
 import { computed, ref } from "vue";
 import Footer from "../components/Footer.vue";
+import SignOutButton from "../components/SignOutButton.vue";
 
 const db = useFirestore();
 const user = useCurrentUser();
@@ -34,69 +35,112 @@ const toggleListVaults = () => {
   listVaults.value = true;
 };
 </script>
-<template>
+<template class="bg-(--color-deep-forest)">
   <nav
-    class="flex flex-row h-11.25 items-center bg-(--background-dark) justify-between"
+    class="flex flex-row h-11.25 items-center bg-(--color-deep-forest) justify-between"
   >
     <h1
-      class="ml-6 mt-5 text-[1.3rem] font-[Pacifico] text-(--secondary-accent) justify-self-start"
+      class="ml-6 mt-5 text-[1.3rem] font-[Pacifico] text-(--color-mint-bright) justify-self-start"
     >
       Hello {{ user.displayName }}
     </h1>
-    <div class="mr-3">
-      <!-- <span
-        class="mdi mdi-magnify text-[1.5rem] bg-[#B6D6F2] text-[#E83338] rounded-4xl px-1 mx-1"
-      ></span>
-      <span
-        class="mdi mdi-note-plus text-[1.5rem] bg-[#B6D6F2] text-[#E83338] rounded-4xl px-1 mx-1"
-      ></span>
-      <span
-        class="mdi mdi-sort text-[1.5rem] bg-[#B6D6F2] text-[#E83338] rounded-4xl px-1 mx-1"
-      ></span> -->
+    <div class="mr-6 mt-5 text-(--color-mint-bright)">
+      <SignOutButton></SignOutButton>
     </div>
   </nav>
-  <div class="flex flex-col bg-(--background-dark)">
+  <div class="flex flex-col bg-(--color-deep-forest) h-fit">
     <div
-      class="bg-(--primary-accent) h-30 aspect-3/2 m-6 rounded-2xl flex justify-around items-center"
+      class="bg-(--color-evergreen) h-30 aspect-3/2 m-6 rounded-2xl flex justify-around items-center"
     >
-      <div class="flex flex-col justify-center">
+      <div
+        class="flex flex-col justify-center hover:cursor-pointer"
+        @click="toggleJoinVaults"
+        :class="{
+          'text-(--secondary-accent)': joinVault,
+          'text-(--text-on-dark)': !joinVault,
+        }"
+      >
         <span
-          class="mdi mdi-magnify text-[5vh] md:text-[6vh] flex flex-col text-center text-(--background-light)"
-          @click="toggleJoinVaults"
+          class="mdi mdi-magnify text-[5vh] md:text-[6vh] flex flex-col text-center"
         >
         </span>
-        <legend
-          class="text-[1rem] text-(--background-light) font-[Raleway] font-bold tracking-wide"
-        >
+        <legend class="text-[1rem] font-[Raleway] font-bold tracking-wide">
           Join vault
         </legend>
       </div>
-      <div class="flex flex-col justify-center">
+      <div
+        class="flex flex-col justify-center hover:cursor-pointer"
+        @click="toggleMakeVaults"
+        :class="{
+          'text-(--secondary-accent)': makeVault,
+          'text-(--text-on-dark)': !makeVault,
+        }"
+      >
         <span
-          class="mdi mdi-note-plus text-[5vh] md:text-[6vh] text-center text-(--highlight)"
-          @click="toggleMakeVaults"
+          class="mdi mdi-note-plus text-[5vh] md:text-[6vh] text-center"
         ></span>
-        <legend
-          class="text-[1rem] text-(--background-light) font-[Raleway] font-bold tracking-wide"
-        >
+        <legend class="text-[1rem] font-[Raleway] font-bold tracking-wide">
           Make vault
         </legend>
       </div>
-      <div class="flex flex-col justify-center">
-        <span
-          class="mdi mdi-sort text-[5vh] md:text-[6vh] text-center text-(--background-light)"
-          @click="toggleListVaults"
-        ></span>
-        <legend
-          class="text-[1rem] text-(--background-light) font-[Raleway] font-bold tracking-wide"
-        >
+      <div
+        class="flex flex-col justify-center hover:cursor-pointer"
+        @click="toggleListVaults"
+        :class="{
+          'text-(--secondary-accent)': listVaults,
+          'text-(--text-on-dark)': !listVaults,
+        }"
+      >
+        <span class="mdi mdi-sort text-[5vh] md:text-[6vh] text-center"></span>
+        <legend class="text-[1rem] font-[Raleway] font-bold tracking-wide">
           List vaults
         </legend>
       </div>
     </div>
-    <div></div>
+    <div
+      class="bg-(--color-evergreen) h-70 aspect-3/2 m-6 rounded-2xl flex justify-around items-center"
+    >
+      <JoinVault v-show="joinVault" />
+      <MakeVault v-show="makeVault" />
+      <div
+        v-show="listVaults"
+        class="flex flex-col text-center p-2 justify-around"
+      >
+        <h2 class="m-0 font-[Raleway] text-2xl font-bold text-(--text-on-dark)">
+          Vaults
+        </h2>
+        <legend
+          class="mb-1.5 text-[0.8rem] text-center text-(--text-on-dark) font-[Raleway] font-bold tracking-wider"
+        >
+          Click on a vault name to open
+        </legend>
+
+        <div class="h-50 overflow-y-scroll overflow-x-hidden">
+          <h3
+            v-if="noVaults"
+            class="p-2 mt-2 font-[Raleway] font-bold text-(--primary-accent)"
+          >
+            You have no vaults. Join or make a vault
+          </h3>
+          <ul
+            v-else
+            class="p-2 mb-0.5 font-[Raleway] text-[1.4rem] font-medium"
+          >
+            <li
+              v-for="(vaultName, vaultId) in userData?.joinedVaults"
+              :key="vaultId"
+              class="cursor-pointer text-(--secondary-accent) hover:text-(--highlight) py-2 mx-auto"
+            >
+              <a :href="'/vaults/' + vaultId">
+                <p>{{ vaultName }}</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
-  <div
+  <!-- <div
     class="flex flex-col items-center justify-center md:h-screen h-201 text-center bg-amber-50"
   >
     <h1
@@ -106,7 +150,7 @@ const toggleListVaults = () => {
     </h1>
     <!-- <div
       class="p-5 flex flex-col items-center justify-center text-center w-[80%] m-3"
-    ></div> -->
+    ></div>
     <div class="w-[70%] flex justify-around rounded-xl p-2">
       <span
         class="mdi mdi-magnify text-[5vh] md:text-[6vh]"
@@ -121,33 +165,26 @@ const toggleListVaults = () => {
         @click="toggleListVaults"
       ></span>
     </div>
-    <JoinVault v-show="joinVault" />
-    <MakeVault v-show="makeVault" />
-    <div
-      v-show="listVaults"
-      class="flex flex-col text-center p-2 justify-around"
-    >
-      <h2 class="font-[Raleway] text-2xl font-bold p-2 text-[#010A26]">
-        Vaults
-      </h2>
-      <h3
-        v-if="noVaults"
-        class="p-2 mt-2 font-[Raleway] font-bold text-[#E83338]"
-      >
-        You have no vaults. Join or make a vault
-      </h3>
-      <ul v-else class="p-2 mb-0.5 font-[Raleway] text-lg font-medium">
-        <li
-          v-for="(vaultName, vaultId) in userData?.joinedVaults"
-          :key="vaultId"
-          class="cursor-pointer"
-        >
-          <a :href="'/vaults/' + vaultId">
-            <p>{{ vaultName }}</p>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <Footer></Footer>
+  </div> -->
 </template>
+<style scoped>
+.selected {
+  color: black;
+}
+::-webkit-scrollbar {
+  width: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-deep-forest);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-sage-dark);
+  border-radius: 5%;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sage-light);
+}
+</style>

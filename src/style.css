@@ -4,9 +4,15 @@
 @import "tailwindcss/preflight.css" layer(base);
 :root {
   font-size: 16px;
+  --color-deep-forest: #111d13;
+  --color-evergreen: #415d43;
+  --color-sage-dark: #709775;
+  --color-sage-light: #8fb996;
+  --color-mint-bright: #aad8ae;
+  --text-on-dark: #f0f4f1;
   --background-dark: #011211;
   --background-light: #fbfffe;
   --primary-accent: #6b0504;
-  --secondary-accent: #be380c;
-  --highlight: #e6af2e;
+  --secondary-accent: #f2cc8f;
+  --highlight: #ecb864;
 }
