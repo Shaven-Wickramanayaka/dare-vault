@@ -37,12 +37,13 @@ const toggleListVaults = () => {
 </script>
 <template class="bg-(--color-deep-forest)">
   <nav
-    class="flex flex-row h-11.25 items-center bg-(--color-deep-forest) justify-between"
+    class="flex flex-row h-11.25 items-center bg-(--color-deep-forest) justify-between mt-3"
   >
     <h1
-      class="ml-6 mt-5 text-[1.3rem] font-[Pacifico] text-(--color-mint-bright) justify-self-start"
+      class="ml-6 mt-5 text-[1.3rem] font-[Pacifico] text-(--color-mint-bright) justify-self-start tracking-wider"
     >
-      Hello {{ user.displayName }}
+      <!--  -->
+      Dashboard
     </h1>
     <div class="mr-6 mt-5 text-(--color-mint-bright)">
       <SignOutButton></SignOutButton>
@@ -115,7 +116,7 @@ const toggleListVaults = () => {
           Click on a vault name to open
         </legend>
 
-        <div class="h-50 overflow-y-scroll overflow-x-hidden">
+        <div class="h-50 overflow-y-auto overflow-x-hidden">
           <h3
             v-if="noVaults"
             class="p-2 mt-2 font-[Raleway] font-bold text-(--primary-accent)"

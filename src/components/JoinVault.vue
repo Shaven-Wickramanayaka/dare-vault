@@ -77,7 +77,7 @@ const addVault = async () => {
       <input
         name="vault-id"
         type="text"
-        placeholder="dfdsgfrehjiwbnJNBiubi"
+        placeholder="EmllRVwPBY4iHaeMfYQ6"
         v-model="vaultId"
         class="m-1 p-1 border-2 rounded-lg text-(--color-mint-bright)"
       />

@@ -3,6 +3,7 @@ import { ref } from "vue";
 import { serverTimestamp, addDoc, collection } from "firebase/firestore";
 import { getCurrentUser, useFirestore } from "vuefire";
 const dareName = ref("");
+const dareDesc = ref("");
 const dareSpice = ref(0);
 const props = defineProps({
   vaultId: {
@@ -26,6 +27,7 @@ const addDare = async () => {
   await addDoc(collection(db, "vaults", props.vaultId, "dares"), {
     creatorName: user.displayName,
     title: dareName.value,
+    description: dareDesc.value,
     spice: dareSpice.value,
     createdAt: serverTimestamp(),
     random: randomId,
@@ -42,14 +44,35 @@ const addDare = async () => {
 };
 </script>
 <template>
-  <div class="flex flex-col justify-center text-center">
+  <div
+    class="bg-(--color-evergreen) h-80 aspect-3/2 m-6 rounded-2xl flex flex-col text-center p-2 justify-between"
+  >
     <h2 class="p-2 m-2 text-2xl font-medium text-(--text-on-dark)">Add Dare</h2>
+    <label
+      for="dare-name"
+      class="p-1 font-[Raleway] font-bold tracking-wider text-(--text-on-dark) text-[0.8rem]"
+      >Dare Title
+    </label>
     <input
+      name="dare-name"
       type="text"
       v-model="dareName"
       placeholder="Dare title"
-      class="p-2 mt-0.5"
+      class="m1 p-1 border-2 rounded-lg text-(--color-mint-bright)"
     />
+    <label
+      for="dare-description"
+      class="p-1 font-[Raleway] font-bold tracking-wider text-(--text-on-dark) text-[0.8rem]"
+      >Description
+    </label>
+    <textarea
+      v-model="dareDesc"
+      name="dare-description"
+      class="m1 border-2 pb-9 rounded-lg text-(--color-mint-bright)"
+      rows="20"
+      placeholder="A devious dare that is very devious"
+    ></textarea>
+    <!-- Might implement this later
     <input
       hidden="true"
       type="range"
@@ -57,10 +80,10 @@ const addDare = async () => {
       max="3"
       v-model="dareSpice"
       class="p-2 mt-2"
-    />
+    /> -->
     <button
       @click="addDare"
-      class="p-2 bg-[#E83338] hover:bg-[#bc2b30] mt-2 rounded-lg"
+      class="p-2 rounded-lg mt-2.5 font-[Raleway] font-medium bg-(--color-sage-light) hover:bg-(--secondary-accent) text-(--color-deep-forest) active:bg-(--highlight)"
     >
       Add dare
     </button>
@@ -69,5 +92,30 @@ const addDare = async () => {
 <style scoped>
 ::placeholder {
   text-align: center;
+}
+
+.selected {
+  color: black;
+}
+::-webkit-scrollbar {
+  width: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-deep-forest);
+  border-radius: 0px 8.5px 8.5px 0px;
+  z-index: 2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-sage-dark);
+  border-radius: 8.5px 8.5px 8.5px 8.5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sage-light);
+}
+textarea {
+  resize: none;
 }
 </style>
