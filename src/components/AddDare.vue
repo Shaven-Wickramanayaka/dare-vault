@@ -45,7 +45,7 @@ const addDare = async () => {
 </script>
 <template>
   <div
-    class="bg-(--color-evergreen) h-80 aspect-3/2 m-6 rounded-2xl flex flex-col text-center p-2 justify-between"
+    class="bg-(--color-evergreen) flex flex-col h-80 aspect-3/2 text-center mt-6 mx-6 px-9 pt-2 pb-4 rounded-2xl justify-between"
   >
     <h2 class="p-2 m-2 text-2xl font-medium text-(--text-on-dark)">Add Dare</h2>
     <label
@@ -68,8 +68,8 @@ const addDare = async () => {
     <textarea
       v-model="dareDesc"
       name="dare-description"
-      class="m1 border-2 pb-9 rounded-lg text-(--color-mint-bright)"
-      rows="20"
+      class="p-1 border-2 pb-9 rounded-lg text-(--color-mint-bright)"
+      rows="4"
       placeholder="A devious dare that is very devious"
     ></textarea>
     <!-- Might implement this later

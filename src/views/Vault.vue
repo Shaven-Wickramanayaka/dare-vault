@@ -30,6 +30,7 @@ const isOwner = computed(
 const users = ref(true);
 const addDare = ref(false);
 const share = ref(false);
+const settingsOpen = ref(false);
 const toggleUsers = () => {
   users.value = true;
   addDare.value = false;
@@ -48,6 +49,29 @@ const toggleShare = () => {
 console.log(isOwner);
 </script>
 <template>
+  <div
+    class="bg-[#12121297] h-screen w-screen z-10 absolute m-0 p-0 flex justify-center items-center"
+    v-if="settingsOpen"
+  >
+    <div class="bg-(--color-evergreen) w-80 aspect-3/2 p-6 rounded-2xl">
+      <div class="flex justify-between">
+        <h2
+          class="text-2xl text-center font-medium font-[Raleway] text-(--text-on-dark)"
+        >
+          Settings
+        </h2>
+        <span
+          class="mdi mdi-close-circle text-[1.8rem] text-(--secondary-accent)"
+          @click="settingsOpen = false"
+        ></span>
+      </div>
+
+      <DeleteVault v-if="isOwner" :vaultId="vaultId"></DeleteVault>
+      <div v-else class="p-1 font-[Raleway] font-bold text-(--text-on-dark)">
+        Only the owner can edit this vault
+      </div>
+    </div>
+  </div>
   <nav
     class="flex flex-row h-11.25 items-center bg-(--color-deep-forest) justify-between mt-3"
   >
@@ -59,16 +83,16 @@ console.log(isOwner);
     </h1>
     <button
       v-if="isOwner"
-      @click="router.push('/login')"
+      @click="settingsOpen = true"
       class="inline-flex items-center relative hover:bg-[--color-sage-dark] mr-6 mt-5"
     >
       <span class="mdi mdi-cog text-[1.8rem] text-(--color-mint-bright)"></span>
     </button>
   </nav>
-  <div class="flex flex-col md:flex-row justify-around items-center">
+  <div class="flex flex-col md:flex-row justify-around">
     <AddDare :vaultId="vaultId"></AddDare>
     <div
-      class="grid grid-cols-2 grid-rows-4 gap-3 bg-(--color-evergreen) h-80 aspect-3/2 m-6 p-6 rounded-2xl"
+      class="grid grid-cols-2 grid-rows-4 gap-3 bg-(--color-evergreen) h-80 aspect-3/2 mt-6 mx-6 p-6 rounded-2xl"
     >
       <div
         class="col-span-1 row-span-4 bg-(--color-sage-dark) rounded-tl-2xl rounded-bl-2xl"
@@ -79,12 +103,12 @@ console.log(isOwner);
         <legend
           class="p-1 font-[Raleway] font-bold tracking-wider text-(--color-deep-forest) text-[0.8rem]"
         >
-          Vault ID
+          Vault Name
         </legend>
         <h3
-          class="px-1 font-[Raleway] font-medium tracking-wide text-(--text-on-dark) text-[0.7rem] md:text-[0.95rem]"
+          class="px-1 font-[Raleway] font-medium tracking-wide text-(--text-on-dark) text-[0.8rem] md:text-[0.95rem]"
         >
-          {{ vaultId }}
+          {{ vaultReactive.name }}
         </h3>
         <legend
           class="p-1 font-[Raleway] font-bold tracking-wider text-(--color-deep-forest) text-[0.8rem]"
@@ -92,9 +116,9 @@ console.log(isOwner);
           Vault ID
         </legend>
         <h3
-          class="px-1 font-[Raleway] font-medium text-(--text-on-dark) text-[0.5rem] md:text-[0.95rem]"
+          class="px-1 font-[Raleway] font-medium tracking-wide text-(--text-on-dark) text-[0.6rem] md:text-[0.95rem]"
         >
-          {{ vaultReactive.name }}
+          {{ vaultId }}
         </h3>
         <legend
           class="p-1 mt-3 text-[0.7rem] text-(--text-on-dark) font-[Raleway] font-bold tracking-wider"
@@ -102,45 +126,15 @@ console.log(isOwner);
           Tip: Send the Vault ID and Name to invite people to this vault
         </legend>
       </div>
-      <div
-        class="col-span-1 row-span-1 bg-(--highlight) rounded-br-2xl flex items-center justify-center"
+      <button
+        class="col-span-1 row-span-1 bg-(--secondary-accent) rounded-br-2xl flex items-center justify-center hover:bg-(--highlight)"
       >
-        <button>
-          <h3>Start Session</h3>
-        </button>
-      </div>
+        <h3 class="font-[Pacifico] text-2xl text-(--color-deep-forest)">
+          Start Session
+        </h3>
+      </button>
     </div>
   </div>
-  <!-- 
-  <div class="flex flex-col items-center bg-amber-50">
-    <h1
-      class="p-2 m-2 text-2xl md:text-3xl cursor-pointer font-[Pacifico] text-[#010A26]"
-      @click="router.push('/dashboard')"
-    ></h1>
-    <GetDare :vaultId="vaultId"></GetDare>
-    <div class="w-[60vw] flex justify-around rounded-xl">
-      <span
-        class="mdi mdi-account text-[5vh] md:text-[6vh]"
-        @click="toggleUsers"
-      ></span>
-      <span
-        class="mdi mdi-plus-circle text-[5vh] md:text-[6vh]"
-        @click="toggleAddDare"
-      ></span>
-      <span
-        class="mdi mdi-share text-[5vh] md:text-[6vh]"
-        @click="toggleShare"
-      ></span>
-    </div>
-    <div v-show="users"></div>
-
-    <div v-show="addDare">
-      <AddDare :vaultId="vaultId"></AddDare>
-    </div>
-
-    <!-- TODO: Update security rules to only allow owner to delete
-    <DeleteVault v-if="isOwner" :vaultId="vaultId"></DeleteVault>
-  </div> -->
 </template>
 <style scoped>
 .material-symbols-outlined {

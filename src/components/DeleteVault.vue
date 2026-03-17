@@ -21,22 +21,29 @@ const deleteVault = async () => {
   const vaultStatus = await deleteVaultFull({
     vaultId: props.vaultId,
   });
-  isLoading.value = false;
-  router.push("/dashboard");
-  alert("Vault has been deleted");
+  if (vaultStatus) {
+    isLoading.value = false;
+    router.push("/dashboard");
+    alert("Vault has been deleted");
+  } else {
+    isLoading.value = false;
+    alert("Error deleting vault. Please try again ");
+  }
 };
 </script>
 <template>
   <loading :active="isLoading" :is-full-page="true"></loading>
   <div
-    class="bg-amber-400 rounded-lg p-2 mt-30 h-30 flex flex-col justify-center items-center"
+    class="bg-(--color-sage-dark) rounded-lg p-2 mt-30 h-30 flex flex-col justify-center items-center"
   >
-    <p>This action is irreversible. There is no confirmation screen!</p>
+    <p class="p-1 font-[Raleway] font-bold text-(--text-on-dark)">
+      This action is irreversible. There is no confirmation screen!
+    </p>
     <button
-      class="w-[50%] h-[40%] bg-red-700 p-2 rounded-lg m-3 hover:bg-red-950"
+      class="w-[50%] h-[40%] bg-red-700 p-2 rounded-lg m-3 hover:bg-red-950 text-(--text-on-dark)"
       @click="deleteVault"
     >
-      Delete This Vault
+      Delete Vault
     </button>
   </div>
 </template>
