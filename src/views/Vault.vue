@@ -31,6 +31,8 @@ const users = ref(true);
 const addDare = ref(false);
 const share = ref(false);
 const settingsOpen = ref(false);
+const startSessionClicked = ref(false);
+const players = ref();
 const toggleUsers = () => {
   users.value = true;
   addDare.value = false;
@@ -46,14 +48,25 @@ const toggleShare = () => {
   addDare.value = false;
   share.value = true;
 };
-console.log(isOwner);
+const sendPlayers = () => {
+  if (players.value.length >= 0) {
+    console.log(players.value);
+    sessionStorage.setItem("players", JSON.stringify(players.value));
+    router.push("/session/" + vaultId);
+  } else {
+    alert("Please select at least 2 players");
+  }
+};
 </script>
 <template>
   <div
     class="bg-[#12121297] h-screen w-screen z-10 absolute m-0 p-0 flex justify-center items-center"
-    v-if="settingsOpen"
+    v-if="settingsOpen || startSessionClicked"
   >
-    <div class="bg-(--color-evergreen) w-80 aspect-3/2 p-6 rounded-2xl">
+    <div
+      class="bg-(--color-evergreen) w-80 aspect-3/2 p-6 rounded-2xl"
+      v-if="settingsOpen"
+    >
       <div class="flex justify-between">
         <h2
           class="text-2xl text-center font-medium font-[Raleway] text-(--text-on-dark)"
@@ -69,6 +82,42 @@ console.log(isOwner);
       <DeleteVault v-if="isOwner" :vaultId="vaultId"></DeleteVault>
       <div v-else class="p-1 font-[Raleway] font-bold text-(--text-on-dark)">
         Only the owner can edit this vault
+      </div>
+    </div>
+    <div
+      class="bg-(--color-evergreen) w-80 aspect-3/2 p-6 rounded-2xl"
+      v-if="startSessionClicked"
+    >
+      <div class="flex justify-between">
+        <h2
+          class="text-2xl text-center font-medium font-[Raleway] text-(--text-on-dark)"
+        >
+          Who's Playing?
+        </h2>
+
+        <span
+          class="mdi mdi-close-circle text-[1.8rem] text-(--secondary-accent)"
+          @click="startSessionClicked = false"
+        ></span>
+      </div>
+      <div class="flex justify-center">
+        <select
+          classs="p-2 overflow-y-auto"
+          name="players[]"
+          multiple
+          size="4"
+          v-model="players"
+        >
+          <option
+            v-for="(userDisplayname, userId) in vaultReactive?.joinedUsers"
+            :key="userId"
+            class="m-2 font-[Raleway] font-medium text-[1.4rem] text-center text-(--text-on-dark) tracking-wide"
+            :value="userDisplayname"
+          >
+            {{ userDisplayname }}
+          </option>
+        </select>
+        <button @click="sendPlayers">Start</button>
       </div>
     </div>
   </div>
@@ -129,7 +178,10 @@ console.log(isOwner);
       <button
         class="col-span-1 row-span-1 bg-(--secondary-accent) rounded-br-2xl flex items-center justify-center hover:bg-(--highlight)"
       >
-        <h3 class="font-[Pacifico] text-2xl text-(--color-deep-forest)">
+        <h3
+          class="font-[Pacifico] text-[1rem] md:text-[1.4rem] text-(--color-deep-forest)"
+          @click="startSessionClicked = true"
+        >
           Start Session
         </h3>
       </button>
@@ -139,5 +191,23 @@ console.log(isOwner);
 <style scoped>
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-sage-dark);
+  border-radius: 10px !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-deep-forest);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1e3321;
 }
 </style>

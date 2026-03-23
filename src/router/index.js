@@ -4,6 +4,7 @@ import Dashboard from "../views/Dashboard.vue";
 import Login from "../views/Login.vue";
 import Vault from "../views/Vault.vue";
 import { getCurrentUser } from "vuefire";
+import Session from "../views/Session.vue";
 
 const routes = [
   { path: "/", name: "Home", component: Home },
@@ -22,6 +23,12 @@ const routes = [
     path: "/vaults/:id",
     name: "Vault",
     component: Vault,
+    meta: { requiresAuth: true },
+  },
+  {
+    path: "/session/:id",
+    name: "Session",
+    component: Session,
     meta: { requiresAuth: true },
   },
 ];
