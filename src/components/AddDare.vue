@@ -41,6 +41,8 @@ const addDare = async () => {
     });
   dareName.value = "";
   dareName.placeholder = "Dare Title";
+  dareDesc.value = "";
+  dareDesc.placeholder = "A devious dare that is very devious";
 };
 </script>
 <template>
@@ -83,7 +85,7 @@ const addDare = async () => {
     /> -->
     <button
       @click="addDare"
-      class="p-2 rounded-lg mt-2.5 font-[Raleway] font-medium bg-(--color-sage-light) hover:bg-(--secondary-accent) text-(--color-deep-forest) active:bg-(--highlight)"
+      class="p-2 rounded-lg mt-2.5 font-[Raleway] font-medium bg-(--color-sage-light) cursor-pointer hover:bg-(--secondary-accent) text-(--color-deep-forest) active:bg-(--highlight)"
     >
       Add dare
     </button>

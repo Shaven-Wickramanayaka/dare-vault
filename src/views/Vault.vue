@@ -74,7 +74,7 @@ const sendPlayers = () => {
           Settings
         </h2>
         <span
-          class="mdi mdi-close-circle text-[1.8rem] text-(--secondary-accent)"
+          class="mdi mdi-close-circle text-[1.8rem] text-(--secondary-accent) cursor-pointer"
           @click="settingsOpen = false"
         ></span>
       </div>
@@ -96,11 +96,11 @@ const sendPlayers = () => {
         </h2>
 
         <span
-          class="mdi mdi-close-circle text-[1.8rem] text-(--secondary-accent)"
+          class="mdi mdi-close-circle text-[1.8rem] text-(--secondary-accent) cursor-pointer"
           @click="startSessionClicked = false"
         ></span>
       </div>
-      <div class="flex justify-center">
+      <div class="flex justify-center flex-col">
         <select
           classs="p-2 overflow-y-auto"
           name="players[]"
@@ -111,13 +111,18 @@ const sendPlayers = () => {
           <option
             v-for="(userDisplayname, userId) in vaultReactive?.joinedUsers"
             :key="userId"
-            class="m-2 font-[Raleway] font-medium text-[1.4rem] text-center text-(--text-on-dark) tracking-wide"
+            class="m-2 font-[Raleway] font-medium text-[1.4rem] text-center text-(--text-on-dark) tracking-wide cursor-pointer"
             :value="userDisplayname"
           >
             {{ userDisplayname }}
           </option>
         </select>
-        <button @click="sendPlayers">Start</button>
+        <button
+          class="p-2 rounded-lg mt-2.5 font-[Raleway] font-medium bg-(--color-sage-light) hover:bg-(--secondary-accent) text-(--color-deep-forest) active:bg-(--highlight) cursor-pointer"
+          @click="sendPlayers"
+        >
+          Start Session
+        </button>
       </div>
     </div>
   </div>
@@ -125,7 +130,8 @@ const sendPlayers = () => {
     class="flex flex-row h-11.25 items-center bg-(--color-deep-forest) justify-between mt-3"
   >
     <h1
-      class="ml-6 mt-5 text-[1.3rem] font-[Pacifico] text-(--color-mint-bright) justify-self-start tracking-wider"
+      class="ml-6 mt-5 text-[1.3rem] font-[Pacifico] text-(--color-mint-bright) justify-self-start tracking-wider cursor-pointer"
+      @click="router.push('/dashboard')"
     >
       <!--  -->
       {{ vaultReactive.name }}
@@ -133,7 +139,7 @@ const sendPlayers = () => {
     <button
       v-if="isOwner"
       @click="settingsOpen = true"
-      class="inline-flex items-center relative hover:bg-[--color-sage-dark] mr-6 mt-5"
+      class="inline-flex items-center relative hover:bg-[--color-sage-dark] mr-6 mt-5 cursor-pointer"
     >
       <span class="mdi mdi-cog text-[1.8rem] text-(--color-mint-bright)"></span>
     </button>
@@ -176,7 +182,7 @@ const sendPlayers = () => {
         </legend>
       </div>
       <button
-        class="col-span-1 row-span-1 bg-(--secondary-accent) rounded-br-2xl flex items-center justify-center hover:bg-(--highlight)"
+        class="col-span-1 row-span-1 bg-(--secondary-accent) cursor-pointer rounded-br-2xl flex items-center justify-center hover:bg-(--highlight)"
       >
         <h3
           class="font-[Pacifico] text-[1rem] md:text-[1.4rem] text-(--color-deep-forest)"
@@ -198,7 +204,6 @@ const sendPlayers = () => {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-sage-dark);
   border-radius: 10px !important;
 }
 

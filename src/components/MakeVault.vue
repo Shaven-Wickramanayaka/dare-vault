@@ -63,7 +63,7 @@ const makeVault = async () => {
       />
       <button
         @click="makeVault"
-        class="p-2 rounded-lg mt-2.5 font-[Raleway] font-medium bg-(--color-sage-light) hover:bg-(--secondary-accent) text-(--color-deep-forest) active:bg-(--highlight)"
+        class="p-2 rounded-lg mt-2.5 font-[Raleway] cursor-pointer font-medium bg-(--color-sage-light) hover:bg-(--secondary-accent) text-(--color-deep-forest) active:bg-(--highlight)"
       >
         Make a new vault
       </button>

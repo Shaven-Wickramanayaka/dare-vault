@@ -34,13 +34,13 @@ const deleteVault = async () => {
 <template>
   <loading :active="isLoading" :is-full-page="true"></loading>
   <div
-    class="bg-(--color-sage-dark) rounded-lg p-2 mt-30 h-30 flex flex-col justify-center items-center"
+    class="bg-(--color-sage-dark) rounded-lg p-2 mt-7 h-30 flex flex-col justify-center items-center"
   >
-    <p class="p-1 font-[Raleway] font-bold text-(--text-on-dark)">
+    <p class="p-1 font-[Raleway] font-bold text-amber-200">
       This action is irreversible. There is no confirmation screen!
     </p>
     <button
-      class="w-[50%] h-[40%] bg-red-700 p-2 rounded-lg m-3 hover:bg-red-950 text-(--text-on-dark)"
+      class="bg-red-700 p-2 rounded-lg m-3 hover:bg-red-950 text-(--text-on-dark) cursor-pointer"
       @click="deleteVault"
     >
       Delete Vault

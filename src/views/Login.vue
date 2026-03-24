@@ -19,14 +19,14 @@ const newUserToggle = () => {
     <button
       v-if="newUser"
       @click="newUserToggle"
-      class="mt-3 font-[Raleway] font-medium cursor-pointer"
+      class="mt-3 font-[Raleway] font-medium cursor-pointer text-(--text-on-dark)"
     >
       Already have an account?
     </button>
     <button
       v-else
       @click="newUserToggle"
-      class="mt-3 font-[Raleway] font-medium cursor-pointer"
+      class="mt-3 font-[Raleway] font-medium cursor-pointer text-(--text-on-dark)"
     >
       Just getting Started?
     </button>

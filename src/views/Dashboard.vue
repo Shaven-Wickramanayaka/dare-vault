@@ -119,7 +119,7 @@ const toggleListVaults = () => {
         <div class="h-50 overflow-y-auto overflow-x-hidden">
           <h3
             v-if="noVaults"
-            class="p-2 mt-2 font-[Raleway] font-bold text-(--primary-accent)"
+            class="p-2 mt-2 font-[Raleway] font-bold text-(--secondary-accent)"
           >
             You have no vaults. Join or make a vault
           </h3>
