@@ -23,8 +23,25 @@ onMounted(() => {
 </script>
 <template>
   <Navbar></Navbar>
-  <main>
-    <!-- <section>
+  <section class="flex justify-center items-center">
+      <p class="text-(--text-on-dark) text-(0.1rem)">
+    <pre>
+ /$$$$$$$                                /$$    /$$                    /$$   /$$    
+| $$__  $$                              | $$   | $$                   | $$  | $$    
+| $$  \ $$  /$$$$$$   /$$$$$$   /$$$$$$ | $$   | $$ /$$$$$$  /$$   /$$| $$ /$$$$$$  
+| $$  | $$ |____  $$ /$$__  $$ /$$__  $$|  $$ / $$/|____  $$| $$  | $$| $$|_  $$_/  
+| $$  | $$  /$$$$$$$| $$  \__/| $$$$$$$$ \  $$ $$/  /$$$$$$$| $$  | $$| $$  | $$    
+| $$  | $$ /$$__  $$| $$      | $$_____/  \  $$$/  /$$__  $$| $$  | $$| $$  | $$ /$$
+| $$$$$$$/|  $$$$$$$| $$      |  $$$$$$$   \  $/  |  $$$$$$$|  $$$$$$/| $$  |  $$$$/
+|_______/  \_______/|__/       \_______/    \_/    \_______/ \______/ |__/   \___/  
+                                                                                    
+                                                                                    
+                                                                                    
+    </pre>
+  </p>
+  </section>
+
+  <!-- <section>
       <div class="w-full text-center">
         <h1 class="text-4xl p-3 font-[Raleway] font-bold my-5 text-[#E83338]">
           Removing awkward pauses since 2026
@@ -48,7 +65,7 @@ onMounted(() => {
       <small class="font-[Pacifico] font-light p-2"
         >We are not liable for any broken friendships</small
       >
-    </section> -->
+    </section> -
     <section
       class="flex flex-col md:flex-row flex-wrap items-center justify-between h-120 bg-amber-50"
     >
@@ -76,7 +93,7 @@ onMounted(() => {
             class="w-full object-cover h-90"
           />
         </div>
-      </div> -->
+      </div> -
     </section>
     <section
       class="h-screen flex justify-center items-center-safe text-center font-[Raleway] font-medium bg-amber-50"
@@ -87,5 +104,10 @@ onMounted(() => {
       </p>
     </section>
     <Footer></Footer>
-  </main>
+  </main> -->
 </template>
+<style scoped>
+pre{
+   font-size: max(0.7rem, 1vmin);
+}
+</style>

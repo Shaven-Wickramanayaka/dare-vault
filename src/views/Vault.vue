@@ -32,7 +32,7 @@ const addDare = ref(false);
 const share = ref(false);
 const settingsOpen = ref(false);
 const startSessionClicked = ref(false);
-const players = ref();
+const players = ref([]);
 const toggleUsers = () => {
   users.value = true;
   addDare.value = false;
@@ -100,23 +100,22 @@ const sendPlayers = () => {
           @click="startSessionClicked = false"
         ></span>
       </div>
+
       <div class="flex justify-center flex-col">
-        <select
-          classs="p-2 overflow-y-auto"
-          name="players[]"
-          multiple
-          size="4"
-          v-model="players"
+        <label
+          v-for="(userDisplayname, userId) in vaultReactive?.joinedUsers"
+          :key="userId"
+          class="flex items-center gap-2 py-1 font-[Raleway] font-medium text-(--text-on-dark) cursor-pointer"
         >
-          <option
-            v-for="(userDisplayname, userId) in vaultReactive?.joinedUsers"
-            :key="userId"
-            class="m-2 font-[Raleway] font-medium text-[1.4rem] text-center text-(--text-on-dark) tracking-wide cursor-pointer"
+          <input
+            type="checkbox"
             :value="userDisplayname"
-          >
-            {{ userDisplayname }}
-          </option>
-        </select>
+            v-model="players"
+            class="accent-[--text-on-dark]"
+          />
+          <span>{{ userDisplayname }}</span>
+        </label>
+
         <button
           class="p-2 rounded-lg mt-2.5 font-[Raleway] font-medium bg-(--color-sage-light) hover:bg-(--secondary-accent) text-(--color-deep-forest) active:bg-(--highlight) cursor-pointer"
           @click="sendPlayers"
@@ -130,7 +129,7 @@ const sendPlayers = () => {
     class="flex flex-row h-11.25 items-center bg-(--color-deep-forest) justify-between mt-3"
   >
     <h1
-      class="ml-6 mt-5 text-[1.3rem] font-[Pacifico] text-(--color-mint-bright) justify-self-start tracking-wider cursor-pointer"
+      class="ml-6 mt-5 text-2xl lg:text-3xl font-[Pacifico] text-(--color-mint-bright) justify-self-start tracking-wider cursor-pointer"
       @click="router.push('/dashboard')"
     >
       <!--  -->

@@ -18,7 +18,7 @@ const username = computed(() => user.value?.displayName || null);
     </div>
     <div class="flex-initial">
       <div class="flex justify-end items-center">
-        <div class="flex mr-4 items-center">
+        <!-- <div class="flex mr-4 items-center">
           <a class="inline-block py-2 px-3 rounded-full" href="#">
             <div
               class="flex items-center relative cursor-pointer sm:whitespace-nowrap"
@@ -28,13 +28,13 @@ const username = computed(() => user.value?.displayName || null);
               </h2>
               <h2 class="p-2 text-sm sm:text-base font-[Raleway]" v-else>
                 Hello Stranger
-              </h2> -->
+              </h2> --
             </div>
           </a>
-        </div>
+        </div> -->
 
         <div class="flex flex-row sm:flex-row items-end sm:items-center gap-2">
-          <button
+          <!-- <button
             type="button"
             class="inline-flex items-center relative px-2 border rounded-full font-[Raleway] shrink-0 whitespace-nowrap"
           >
@@ -44,7 +44,7 @@ const username = computed(() => user.value?.displayName || null);
             <div v-else class="p-2">
               <Router-Link to="/dashboard"><s>Dashboard</s></Router-Link>
             </div>
-          </button>
+          </button> -->
 
           <div class="shrink-0">
             <SignOutButton />
@@ -52,6 +52,5 @@ const username = computed(() => user.value?.displayName || null);
         </div>
       </div>
     </div>
-    <!-- end login -->
   </nav>
 </template>

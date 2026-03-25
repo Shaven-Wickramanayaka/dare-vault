@@ -40,9 +40,8 @@ const toggleListVaults = () => {
     class="flex flex-row h-11.25 items-center bg-(--color-deep-forest) justify-between mt-3"
   >
     <h1
-      class="ml-6 mt-5 text-[1.3rem] font-[Pacifico] text-(--color-mint-bright) justify-self-start tracking-wider"
+      class="ml-6 mt-5 text-2xl lg:text-3xl font-[Pacifico] text-(--color-mint-bright) justify-self-start tracking-wider"
     >
-      <!--  -->
       Dashboard
     </h1>
     <div class="mr-6 mt-5 text-(--color-mint-bright)">

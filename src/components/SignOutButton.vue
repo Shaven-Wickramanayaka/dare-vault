@@ -26,7 +26,7 @@ const SignOut = () => {
   <button
     @click="SignOut"
     v-if="loggedIn"
-    class="inline-flex items-center relative border rounded-2xl py-2 px-3 cursor-pointer hover:bg-(--color-sage-dark) hover:text-(--color-deep-forest) active:bg-(--color-sage-light)"
+    class="inline-flex items-center text-(--color-mint-bright) relative border rounded-2xl py-2 px-3 cursor-pointer hover:bg-(--color-sage-dark) hover:text-(--color-deep-forest) active:bg-(--color-sage-light)"
   >
     <h4 class="mr-1 items-center">Log Out</h4>
     <span class="mdi mdi-logout"></span>
@@ -34,7 +34,7 @@ const SignOut = () => {
   <button
     @click="router.push('/login')"
     v-else
-    class="inline-flex items-center relative border rounded-2xl px-3 py-2 cursor-pointer hover:bg-[--color-sage-dark]"
+    class="inline-flex items-center relative border rounded-2xl py-2 px-3 cursor-pointer text-(--color-mint-bright) hover:bg-(--color-sage-dark) hover:text-(--color-deep-forest) active:bg-(--color-sage-light)"
   >
     <h4 class="mr-1 items-center">Log In</h4>
 
