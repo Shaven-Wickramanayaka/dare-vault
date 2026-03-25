@@ -1,13 +1,14 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "../views/Home.vue";
-import Dashboard from "../views/Dashboard.vue";
+import Home from "../components/Home.vue";
+import Dashboard from "../components/Dashboard.vue";
+import Index from "../views/Index.vue";
 import Login from "../views/Login.vue";
 import Vault from "../views/Vault.vue";
 import { getCurrentUser } from "vuefire";
 import Session from "../views/Session.vue";
 
 const routes = [
-  { path: "/", name: "Home", component: Home },
+  { path: "/", name: "Index", component: Index },
   {
     path: "/dashboard",
     name: "Dashboard",

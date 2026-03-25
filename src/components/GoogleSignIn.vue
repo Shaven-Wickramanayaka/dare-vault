@@ -21,7 +21,7 @@ const googleSignIn = async () => {
       { merge: true },
     );
 
-    router.push("/dashboard");
+    router.push("/");
   } catch (error) {
     console.log(error);
   }
@@ -31,7 +31,7 @@ const googleSignIn = async () => {
 <template>
   <button
     @click="googleSignIn"
-    class="m-3 p-2 bg-[#E83338] rounded-lg text-white hover:bg-[#a4262a]"
+    class="mt-6 p-3 bg-(--secondary-accent) cursor-pointer rounded-xl flex items-center justify-center hover:bg-(--highlight) font-[Raleway] font font-bold"
   >
     <span class="mdi mdi-google text-[2.4vh] mr-2" aria-hidden="true"></span
     >Sign in with google

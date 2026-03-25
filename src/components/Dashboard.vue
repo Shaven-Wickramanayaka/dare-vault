@@ -1,12 +1,12 @@
 <script setup>
 import { useCurrentUser, useDocument, useFirestore } from "vuefire";
 import { doc } from "firebase/firestore";
-import JoinVault from "../components/JoinVault.vue";
-import MakeVault from "../components/MakeVault.vue";
-import Navbar from "../components/Navbar.vue";
+import JoinVault from "./JoinVault.vue";
+import MakeVault from "./MakeVault.vue";
+import Navbar from "./Navbar.vue";
 import { computed, ref } from "vue";
-import Footer from "../components/Footer.vue";
-import SignOutButton from "../components/SignOutButton.vue";
+import Footer from "./Footer.vue";
+import SignOutButton from "./SignOutButton.vue";
 
 const db = useFirestore();
 const user = useCurrentUser();

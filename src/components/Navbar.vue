@@ -7,13 +7,13 @@ const username = computed(() => user.value?.displayName || null);
 </script>
 <template>
   <nav
-    class="w-fill flex justify-between items-center mx-auto px-3 sm:px-8 py-3 bg-[#b6d6F2] gap-2"
+    class="w-fill flex justify-between items-center mx-auto px-3 sm:px-8 py-3 bg-(--color-deep-forest) gap-2"
   >
     <div class="inline-flex">
       <Router-Link
         to="/"
-        class="text-2xl lg:text-3xl font-[Pacifico] text-[#010A26]"
-        >darevault</Router-Link
+        class="text-2xl lg:text-3xl font-[Pacifico] text-(--color-mint-bright)"
+        >Darevault</Router-Link
       >
     </div>
     <div class="flex-initial">

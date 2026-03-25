@@ -31,5 +31,4 @@ const newUserToggle = () => {
       Just getting Started?
     </button>
   </div>
-  <Footer></Footer>
 </template>
