@@ -23,24 +23,39 @@ onMounted(() => {
 </script>
 <template>
   <Navbar></Navbar>
-  <section class="flex justify-center items-center">
-      <p class="text-(--text-on-dark) text-(0.1rem)">
-    <pre>
- /$$$$$$$                                /$$    /$$                    /$$   /$$    
-| $$__  $$                              | $$   | $$                   | $$  | $$    
-| $$  \ $$  /$$$$$$   /$$$$$$   /$$$$$$ | $$   | $$ /$$$$$$  /$$   /$$| $$ /$$$$$$  
-| $$  | $$ |____  $$ /$$__  $$ /$$__  $$|  $$ / $$/|____  $$| $$  | $$| $$|_  $$_/  
-| $$  | $$  /$$$$$$$| $$  \__/| $$$$$$$$ \  $$ $$/  /$$$$$$$| $$  | $$| $$  | $$    
-| $$  | $$ /$$__  $$| $$      | $$_____/  \  $$$/  /$$__  $$| $$  | $$| $$  | $$ /$$
-| $$$$$$$/|  $$$$$$$| $$      |  $$$$$$$   \  $/  |  $$$$$$$|  $$$$$$/| $$  |  $$$$/
-|_______/  \_______/|__/       \_______/    \_/    \_______/ \______/ |__/   \___/  
-                                                                                    
-                                                                                    
-                                                                                    
-    </pre>
-  </p>
+  <section class="flex flex-col justify-center items-center text-center">
+    <pre
+      class="text-(--text-on-dark) text-[0.9rem] md:text-[1.3rem] lg:text-[1.5rem] mt-7"
+    >
+ ____                                  _ _   
+|  _ \  __ _ _ __ _____   ____ _ _   _| | |_ 
+| | | |/ _` | '__/ _ \ \ / / _` | | | | | __|
+| |_| | (_| | | |  __/\ V / (_| | |_| | | |_ 
+|____/ \__,_|_|  \___| \_/ \__,_|\__,_|_|\__|
+                                              
+     </pre
+    >
+    <div
+      class="grid grid-cols-2 grid-rows-4 gap-20 bg-(--color-evergreen) h-60 aspect-3/2 md:w-150 lg:w-200 md:aspect-3/1 mt-6 mx-6 p-6 rounded-2xl"
+    >
+      <div
+        class="h-30 rounded-2xl aspect-square col-span-1 row-span-1 bg-amber-400"
+      ></div>
+      <div
+        class="h-30 m-10 rounded-2xl aspect-square col-span-1 row-span-1 bg-amber-400"
+      ></div>
+      <div
+        class="h-30 m-10 rounded-2xl aspect-square col-span-1 row-span-1 bg-amber-400"
+      ></div>
+      <div
+        class="h-20 m-10 rounded-2xl aspect-square col-span-1 row-span-1 bg-amber-400"
+      ></div>
+      <div
+        class="h-20 m-10 rounded-2xl aspect-square col-span-1 row-span-1 bg-amber-400"
+      ></div>
+    </div>
   </section>
-
+  <!-- Do not annotate ascii bottom row, i do not know how to fix the alignment error anyother way -->
   <!-- <section>
       <div class="w-full text-center">
         <h1 class="text-4xl p-3 font-[Raleway] font-bold my-5 text-[#E83338]">
@@ -106,8 +121,8 @@ onMounted(() => {
     <Footer></Footer>
   </main> -->
 </template>
-<style scoped>
-pre{
-   font-size: max(0.7rem, 1vmin);
+<!-- <style scoped>
+pre {
+  font-size: max(0.7rem, 1vmin);
 }
-</style>
+</style> -->
