@@ -10,8 +10,8 @@ import {
   query,
   where,
 } from "firebase/firestore";
-import { useCurrentUser, useFirestore, useDocument } from "vuefire";
-import { gsap } from "gsap/gsap-core";
+import { useFirestore, useDocument } from "vuefire";
+import { gsap } from "gsap";
 const players = ref([]);
 const route = useRoute();
 const router = useRouter();
@@ -72,6 +72,8 @@ async function dareRequest() {
 }
 const getDare = async () => {
   let tl = gsap.timeline();
+  gsap.killTweensOf("#dareButton");
+  gsap.set("#dareButton", { rotation: "0" });
   tl.add("anim_start", "+=0").to(
     "#dareButton",
     {

@@ -1,25 +1,38 @@
 <script setup>
 import Navbar from "./Navbar.vue";
 import Footer from "./Footer.vue";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import gsap from "gsap";
 import { useRouter } from "vue-router";
 const images = [["/background.png"]];
 const router = useRouter();
 const ribbonRefs = ref([]);
+// ! Edge doesnt like to serve the prompt if on landing page
+// let deferredPrompt;
+// const grabPwaPrompt = (e) => {
+//   e.preventDefault();
+//   deferredPrompt = e;
+//   console.log("caught prompt");
+// };
+// window.addEventListener("beforeinstallprompt", grabPwaPrompt);
+// onMounted(() => {});
+// onUnmounted(() => {
+//   window.removeEventListener("beforeinstallprompt", grabPwaPrompt);
+// });
+// const installPwa = () => {
+//   // Source - https://stackoverflow.com/a/64727286
+//   // Posted by Adam D
+//   // Retrieved 2026-03-28, License - CC BY-SA 4.0
 
-onMounted(() => {
-  ribbonRefs.value.forEach((ribbon) => {
-    const track = ribbon.querySelector(".ribbon-track");
-    const trackHeight = track.scrollHeight / 2;
-    gsap.to(track, {
-      y: -trackHeight,
-      duration: 10 + gsap.utils.random(1, 5) * 7,
-      ease: "none",
-      repeat: -1,
-    });
-  });
-});
+//   deferredPrompt.prompt();
+//   deferredPrompt.userChoice.then((choiceResult) => {
+//     if (choiceResult.outcome === "accepted") {
+//       console.log("User accepted the install prompt");
+//     } else {
+//       console.log("User dismissed the install prompt");
+//     }
+//   });
+// };
 </script>
 <template>
   <Navbar></Navbar>
@@ -37,20 +50,24 @@ onMounted(() => {
 </pre
     >
     <div
-      class="flex justify-center items-center bg-(--color-evergreen) h-60 aspect-3/2 md:w-150 lg:w-200 md:aspect-3/1 mt-6 mx-6 p-6 rounded-2xl"
+      class="flex justify-center items-center bg-(--color-evergreen) h-40 md:h-60 aspect-3/2 md:w-150 lg:w-200 md:aspect-3/1 mt-6 mx-6 p-6 rounded-2xl"
     >
-      <p class="text-2xl font-[Raleway] font-black text-(--color-mint-bright)">
+      <p
+        class="text-lg md:text-2xl font-[Raleway] font-black text-(--color-mint-bright)"
+      >
         "Stop forgetting that question you want to ask your friend. Use
         Darevault"
       </p>
     </div>
   </section>
 
-  <section class="flex flex-col items-center text-center mt-20 h-200">
+  <section class="flex flex-col items-center text-center mt-20">
     <h2 class="text-[2.5rem] font-[Pacifico] text-(--text-on-dark)">
       How it works
     </h2>
-    <div class="grid grid-cols-4 grid-rows-4 gap-x-15">
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-flow-row gap-x-15 mx-5"
+    >
       <div class="flex justify-center flex-col items-center w-40 aspect-square">
         <h3
           class="p-2 text-2xl font-[Raleway] text-(--color-sage-dark) font-bold"
@@ -160,11 +177,24 @@ onMounted(() => {
         </legend>
       </div>
       <div
-        class="col-span-2 row-span-1 font-[Pacifico] flex justify-center items-center text-5xl aspect-auto text-(--text-on-dark)"
+        class="col-span-2 row-span-1 font-[Pacifico] flex justify-center items-center text-5xl aspect-auto text-(--text-on-dark) p-6 text-center"
       >
         Thats it!
       </div>
     </div>
+  </section>
+  <section class="flex flex-col items-center text-center mt-20">
+    <h2 class="text-[2.5rem] font-[Pacifico] text-(--text-on-dark)">
+      Available on all platforms
+    </h2>
+    <p
+      class="m-2 p-4 font-[Raleway] text-xl font-medium text-(--color-mint-bright)"
+    >
+      Using the power of web technologies, Darevault is available on any devices
+      with an internet connection!
+    </p>
+
+    <button @click="installPwa">Install on your device</button>
   </section>
   <section class="flex justify-center items-center">
     <div

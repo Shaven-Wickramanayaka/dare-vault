@@ -24,8 +24,8 @@ export default defineConfig({
         start_url: "/",
         scope: "/",
         display: "standalone",
-        theme_color: "#ffffff",
-        background_color: "#ffffff",
+        theme_color: "#415d43",
+        background_color: "#111d13",
         icons: [
           {
             src: "web-app-manifest-192x192.png",
@@ -40,13 +40,13 @@ export default defineConfig({
             purpose: "any",
           },
           {
-            src: "img/icons/android-chrome-maskable-192x192.png",
+            src: "icons/icon-192x192-maskable.png",
             sizes: "192x192",
             type: "image/png",
             purpose: "maskable",
           },
           {
-            src: "img/icons/android-chrome-maskable-512x512.png",
+            src: "icons/icon-512x512-maskable.png",
             sizes: "512x512",
             type: "image/png",
             purpose: "maskable",
