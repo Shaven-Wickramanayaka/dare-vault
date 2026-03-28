@@ -38,7 +38,7 @@ const ribbonRefs = ref([]);
   <Navbar></Navbar>
   <section class="flex flex-col justify-center items-center text-center">
     <pre
-      class="text-(--highlight) text-[0.5rem] sm:text-[0.5rem] md:text-[1.4rem] lg:text-[1.5rem] mt-3"
+      class="text-(--highlight) text-[0.5rem] sm:text-[0.4rem] md:text-[1.4rem] lg:text-[1.5rem] mt-3 text-center"
     >
 ██████╗  █████╗ ██████╗ ███████╗██╗   ██╗ █████╗ ██╗   ██╗██╗  ████████╗
 ██╔══██╗██╔══██╗██╔══██╗██╔════╝██║   ██║██╔══██╗██║   ██║██║  ╚══██╔══╝
@@ -53,10 +53,10 @@ const ribbonRefs = ref([]);
       class="flex justify-center items-center bg-(--color-evergreen) h-40 md:h-60 aspect-3/2 md:w-150 lg:w-200 md:aspect-3/1 mt-6 mx-6 p-6 rounded-3xl shadow-2xl shadow-[#283929]"
     >
       <p
-        class="text-lg md:text-2xl font-[Raleway] font-black text-(--color-mint-bright)"
+        class="text-lg md:text-2xl font-[Raleway] font-semibold text-(--color-mint-bright)"
       >
-        "Stop forgetting that question you want to ask your friend. Use
-        Darevault"
+        "Stop forgetting the questions you want to ask your friends. Use
+        Darevault.."
       </p>
     </div>
   </section>
@@ -74,12 +74,13 @@ const ribbonRefs = ref([]);
         >
           Step 1
         </h3>
-        <img
-          src="https://placehold.co/400"
-          alt=""
+        <video
+          src="/public/img/signin.mp4"
+          autoplay="true"
           width="200px"
-          class="rounded-2xl"
-        />
+          loop="true"
+          class="rounded-2xl shadow-2xl shadow-[#283929]"
+        ></video>
         <legend
           class="p-2 font-[Raleway] font-medium text-(--color-mint-bright)"
         >
@@ -92,12 +93,13 @@ const ribbonRefs = ref([]);
         >
           Step 2
         </h3>
-        <img
-          src="https://placehold.co/400"
-          alt=""
+        <video
+          src="/public/img/make_vault.mp4"
+          autoplay="true"
           width="200px"
-          class="rounded-2xl"
-        />
+          loop="true"
+          class="rounded-2xl shadow-2xl shadow-[#283929]"
+        ></video>
         <legend
           class="p-2 font-[Raleway] font-medium text-(--color-mint-bright)"
         >
@@ -110,12 +112,13 @@ const ribbonRefs = ref([]);
         >
           Step 3
         </h3>
-        <img
-          src="https://placehold.co/400"
-          alt=""
+        <video
+          src="/public/img/share_id.mp4"
+          autoplay="true"
           width="200px"
-          class="rounded-2xl"
-        />
+          loop="true"
+          class="rounded-2xl shadow-2xl shadow-[#283929]"
+        ></video>
         <legend
           class="p-2 font-[Raleway] font-medium text-(--color-mint-bright)"
         >
@@ -128,12 +131,13 @@ const ribbonRefs = ref([]);
         >
           Step 4
         </h3>
-        <img
-          src="https://placehold.co/400"
-          alt=""
+        <video
+          src="/public/img/add_dare.mp4"
+          autoplay="true"
           width="200px"
-          class="rounded-2xl"
-        />
+          loop="true"
+          class="rounded-2xl shadow-2xl shadow-[#283929]"
+        ></video>
         <legend
           class="p-2 font-[Raleway] font-medium text-(--color-mint-bright)"
         >
@@ -146,12 +150,13 @@ const ribbonRefs = ref([]);
         >
           Step 5
         </h3>
-        <img
-          src="https://placehold.co/400"
-          alt=""
+        <video
+          src="/public/img/start_session.mp4"
+          autoplay="true"
           width="200px"
-          class="rounded-2xl"
-        />
+          loop="true"
+          class="rounded-2xl shadow-2xl shadow-[#283929]"
+        ></video>
         <legend
           class="p-2 font-[Raleway] font-medium text-(--color-mint-bright)"
         >
@@ -164,12 +169,13 @@ const ribbonRefs = ref([]);
         >
           Step 6
         </h3>
-        <img
-          src="https://placehold.co/400"
-          alt=""
+        <video
+          src="/public/img/get_dare.mp4"
+          autoplay="true"
           width="200px"
-          class="rounded-2xl"
-        />
+          loop="true"
+          class="rounded-2xl shadow-2xl shadow-[#283929]"
+        ></video>
         <legend
           class="p-2 font-[Raleway] font-medium text-(--color-mint-bright)"
         >
