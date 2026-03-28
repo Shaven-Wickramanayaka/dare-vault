@@ -204,29 +204,41 @@ const ribbonRefs = ref([]);
     >
       <iframe
         src="https://www.youtube.com/embed/AwfKUpq5seE?si=xXo0_xDZmCKm6y1w"
-        title="YouTube video player"
+        title="Install PWA on Iphone"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerpolicy="strict-origin-when-cross-origin"
         allowfullscreen
+        allow-same-origin
+        allow-scripts
+        allow-presentation
+        allow-popups
         class="aspect-video w-80 m-5 rounded-2xl"
       ></iframe>
       <iframe
         src="https://www.youtube.com/embed/iJteraObjgs?si=98slLg5VngUinPSc"
-        title="YouTube video player"
+        title="Install PWA on Android"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerpolicy="strict-origin-when-cross-origin"
         allowfullscreen
+        allow-same-origin
+        allow-scripts
+        allow-presentation
+        allow-popups
         class="aspect-video w-80 m-5 rounded-2xl"
       ></iframe>
       <iframe
         src="https://www.youtube.com/embed/vaZCRZbV7Ok?si=KsY3TYsxQ2VtKVUC"
-        title="YouTube video player"
+        title="Install PWA on desktop"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerpolicy="strict-origin-when-cross-origin"
         allowfullscreen
+        allow-same-origin
+        allow-scripts
+        allow-presentation
+        allow-popups
         class="aspect-video w-80 m-5 rounded-2xl"
       ></iframe>
     </div>
