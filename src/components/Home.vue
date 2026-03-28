@@ -3,9 +3,9 @@ import Navbar from "./Navbar.vue";
 import Footer from "./Footer.vue";
 import { ref, onMounted } from "vue";
 import gsap from "gsap";
-
+import { useRouter } from "vue-router";
 const images = [["/background.png"]];
-
+const router = useRouter();
 const ribbonRefs = ref([]);
 
 onMounted(() => {
@@ -23,7 +23,7 @@ onMounted(() => {
 </script>
 <template>
   <Navbar></Navbar>
-  <section class="flex flex-col justify-center items-center text-center h-160">
+  <section class="flex flex-col justify-center items-center text-center">
     <pre
       class="text-(--text-on-dark) text-[0.5rem] sm:text-[0.6rem] md:text-[1.4rem] lg:text-[1.5rem] mt-3"
     >
@@ -33,8 +33,8 @@ onMounted(() => {
 ██║  ██║██╔══██║██╔══██╗██╔══╝  ╚██╗ ██╔╝██╔══██║██║   ██║██║     ██║   
 ██████╔╝██║  ██║██║  ██║███████╗ ╚████╔╝ ██║  ██║╚██████╔╝███████╗██║   
 ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝  ╚═══╝  ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝   
-               
-     </pre
+
+</pre
     >
     <div
       class="flex justify-center items-center bg-(--color-evergreen) h-60 aspect-3/2 md:w-150 lg:w-200 md:aspect-3/1 mt-6 mx-6 p-6 rounded-2xl"
@@ -46,12 +46,12 @@ onMounted(() => {
     </div>
   </section>
 
-  <section class="flex flex-col items-center text-center h-100">
+  <section class="flex flex-col items-center text-center mt-20 h-200">
     <h2 class="text-[2.5rem] font-[Pacifico] text-(--text-on-dark)">
       How it works
     </h2>
     <div class="grid grid-cols-4 grid-rows-4 gap-x-15">
-      <div class="aspect-square flex justify-center flex-col items-center w-40">
+      <div class="flex justify-center flex-col items-center w-40 aspect-square">
         <h3
           class="p-2 text-2xl font-[Raleway] text-(--color-sage-dark) font-bold"
         >
@@ -66,7 +66,7 @@ onMounted(() => {
         <legend
           class="p-2 font-[Raleway] font-medium text-(--color-mint-bright)"
         >
-          Sign in using your email or google.
+          Sign in using your email or Google.
         </legend>
       </div>
       <div class="aspect-square flex justify-center flex-col items-center w-40">
@@ -164,6 +164,18 @@ onMounted(() => {
       >
         Thats it!
       </div>
+    </div>
+  </section>
+  <section class="flex justify-center items-center">
+    <div
+      class="aspect-3/2 w-90 bg-(--color-evergreen) flex justify-center items-center rounded-2xl"
+    >
+      <button
+        @click="router.push('/login')"
+        class="p-3 bg-(--secondary-accent) cursor-pointer rounded-xl flex items-center justify-center hover:bg-(--highlight) font-[Raleway] font font-bold"
+      >
+        Get Started
+      </button>
     </div>
   </section>
   <!-- <section>
