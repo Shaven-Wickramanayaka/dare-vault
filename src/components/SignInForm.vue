@@ -62,7 +62,8 @@ const emailSignIn = () => {
 <template>
   <loading :active="isLoading" :is-full-page="true"></loading>
   <div
-    class="flex flex-col justify-center items-center bg-(--color-evergreen) p-3 rounded-xl aspect-2/3 w-60"
+    class="flex flex-col justify-center items-center bg-(--color-evergreen) p-3 rounded-xl aspect-2/3 w-60 shadow-2xl shadow-[#283929]"
+    shadow-[#283929]
   >
     <h1 class="text-3xl mb-3 text-(--color-mint-bright) font-[Pacifico]">
       Sign In

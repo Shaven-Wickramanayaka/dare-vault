@@ -143,10 +143,10 @@ const sendPlayers = () => {
       <span class="mdi mdi-cog text-[1.8rem] text-(--color-mint-bright)"></span>
     </button>
   </nav>
-  <div class="flex flex-col md:flex-row justify-around">
+  <div class="flex flex-col md:flex-row justify-around mt-4">
     <AddDare :vaultId="vaultId"></AddDare>
     <div
-      class="grid grid-cols-2 grid-rows-4 gap-3 bg-(--color-evergreen) h-80 aspect-3/2 mt-6 mx-6 p-6 rounded-2xl"
+      class="grid grid-cols-2 grid-rows-4 gap-3 bg-(--color-evergreen) h-80 aspect-3/2 mt-6 mx-6 p-6 rounded-2xl shadow-2xl shadow-[#283929]"
     >
       <div
         class="col-span-1 row-span-4 bg-(--color-sage-dark) rounded-tl-2xl rounded-bl-2xl"

@@ -50,7 +50,7 @@ const toggleListVaults = () => {
   </nav>
   <div class="flex flex-col bg-(--color-deep-forest) h-fit">
     <div
-      class="bg-(--color-evergreen) h-30 aspect-3/2 m-6 rounded-2xl flex justify-around items-center"
+      class="bg-(--color-evergreen) h-30 aspect-3/2 m-6 rounded-2xl flex justify-around items-center shadow-2xl shadow-[#283929]"
     >
       <div
         class="flex flex-col justify-center hover:cursor-pointer"
@@ -98,7 +98,7 @@ const toggleListVaults = () => {
       </div>
     </div>
     <div
-      class="bg-(--color-evergreen) h-70 aspect-3/2 m-6 rounded-2xl flex justify-around items-center"
+      class="bg-(--color-evergreen) h-70 aspect-3/2 m-6 rounded-2xl flex justify-around items-center shadow-2xl shadow-[#283929]"
     >
       <JoinVault v-show="joinVault" />
       <MakeVault v-show="makeVault" />

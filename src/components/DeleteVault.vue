@@ -36,7 +36,7 @@ const deleteVault = async () => {
   <div
     class="bg-(--color-sage-dark) rounded-lg p-2 mt-7 h-30 flex flex-col justify-center items-center"
   >
-    <p class="p-1 font-[Raleway] font-bold text-amber-200">
+    <p class="p-1 font-[Raleway] font-bold text-(--color-deep-forest)">
       This action is irreversible. There is no confirmation screen!
     </p>
     <button

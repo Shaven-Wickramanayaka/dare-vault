@@ -38,7 +38,7 @@ const ribbonRefs = ref([]);
   <Navbar></Navbar>
   <section class="flex flex-col justify-center items-center text-center">
     <pre
-      class="text-(--text-on-dark) text-[0.5rem] sm:text-[0.6rem] md:text-[1.4rem] lg:text-[1.5rem] mt-3"
+      class="text-(--highlight) text-[0.5rem] sm:text-[0.5rem] md:text-[1.4rem] lg:text-[1.5rem] mt-3"
     >
 ██████╗  █████╗ ██████╗ ███████╗██╗   ██╗ █████╗ ██╗   ██╗██╗  ████████╗
 ██╔══██╗██╔══██╗██╔══██╗██╔════╝██║   ██║██╔══██╗██║   ██║██║  ╚══██╔══╝
@@ -50,7 +50,7 @@ const ribbonRefs = ref([]);
 </pre
     >
     <div
-      class="flex justify-center items-center bg-(--color-evergreen) h-40 md:h-60 aspect-3/2 md:w-150 lg:w-200 md:aspect-3/1 mt-6 mx-6 p-6 rounded-2xl"
+      class="flex justify-center items-center bg-(--color-evergreen) h-40 md:h-60 aspect-3/2 md:w-150 lg:w-200 md:aspect-3/1 mt-6 mx-6 p-6 rounded-3xl shadow-2xl shadow-[#283929]"
     >
       <p
         class="text-lg md:text-2xl font-[Raleway] font-black text-(--color-mint-bright)"
@@ -177,7 +177,7 @@ const ribbonRefs = ref([]);
         </legend>
       </div>
       <div
-        class="col-span-2 row-span-1 font-[Pacifico] flex justify-center items-center text-5xl aspect-auto text-(--text-on-dark) p-6 text-center"
+        class="col-span-2 row-span-1 font-[Pacifico] flex justify-center items-center text-5xl aspect-auto text-(--highlight) p-6 text-center"
       >
         Thats it!
       </div>
@@ -193,21 +193,51 @@ const ribbonRefs = ref([]);
       Using the power of web technologies, Darevault is available on any devices
       with an internet connection!
     </p>
-
-    <button @click="installPwa">Install on your device</button>
+    <div
+      class="flex flex-row flex-wrap justify-center items-center text-center"
+    >
+      <iframe
+        src="https://www.youtube.com/embed/AwfKUpq5seE?si=xXo0_xDZmCKm6y1w"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+        class="aspect-video w-80 m-5 rounded-2xl"
+      ></iframe>
+      <iframe
+        src="https://www.youtube.com/embed/iJteraObjgs?si=98slLg5VngUinPSc"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+        class="aspect-video w-80 m-5 rounded-2xl"
+      ></iframe>
+      <iframe
+        src="https://www.youtube.com/embed/vaZCRZbV7Ok?si=KsY3TYsxQ2VtKVUC"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+        class="aspect-video w-80 m-5 rounded-2xl"
+      ></iframe>
+    </div>
+    <button
+      @click="router.push('/login')"
+      class="p-6 m-6 mb-12 bg-(--secondary-accent) cursor-pointer rounded-xl flex items-center justify-center hover:bg-(--highlight) font-[Pacifico] text-2xl"
+    >
+      Get Started
+    </button>
   </section>
-  <section class="flex justify-center items-center">
+  <!-- <section class="flex justify-center items-center">
     <div
       class="aspect-3/2 w-90 bg-(--color-evergreen) flex justify-center items-center rounded-2xl"
-    >
-      <button
-        @click="router.push('/login')"
-        class="p-3 bg-(--secondary-accent) cursor-pointer rounded-xl flex items-center justify-center hover:bg-(--highlight) font-[Raleway] font font-bold"
-      >
-        Get Started
-      </button>
-    </div>
-  </section>
+    ></div>
+    
+  </section> -->
+
   <!-- <section>
       <div class="w-full text-center">
         <h1 class="text-4xl p-3 font-[Raleway] font-bold my-5 text-[#E83338]">

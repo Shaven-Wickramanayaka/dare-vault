@@ -153,7 +153,7 @@ onMounted(() => {
     class="flex flex-row h-11.25 items-center bg-(--color-deep-forest) justify-between mt-3"
   >
     <h1
-      class="ml-6 mt-5 text-[1.3rem] font-[Pacifico] text-(--color-mint-bright) justify-self-start tracking-wider"
+      class="ml-6 mt-5 text-2xl lg:text-3xl font-[Pacifico] text-(--color-mint-bright) justify-self-start tracking-wider"
     >
       <!--  -->
       {{ vaultReactive.name }}
@@ -171,7 +171,7 @@ onMounted(() => {
     class="flex flex-col md:flex-row justify-center md:justify-around items-center"
   >
     <div
-      class="bg-(--color-evergreen) w-90 aspect-3/2 p-6 rounded-2xl flex flex-col justify-center items-center mt-6"
+      class="bg-(--color-evergreen) w-90 aspect-3/2 p-6 rounded-2xl flex flex-col justify-center items-center mt-6 shadow-2xl shadow-[#283929]"
     >
       <button
         id="dareButton"
@@ -182,7 +182,7 @@ onMounted(() => {
       </button>
     </div>
     <div
-      class="bg-(--color-evergreen) w-90 aspect-3/2 p-6 rounded-2xl flex flex-col justify-center items-center mt-6"
+      class="bg-(--color-evergreen) w-90 aspect-3/2 p-6 rounded-2xl flex flex-col justify-center items-center mt-6 shadow-2xl shadow-[#283929]"
     >
       <div
         id="dareDisplay"
@@ -191,7 +191,10 @@ onMounted(() => {
         <h4 v-if="dareSentence" class="font-medium">
           {{ dareSentence }}
         </h4>
-        <h4 v-else class="my-3 font-medium tracking-tight">
+        <h4
+          v-else
+          class="my-3 font-medium tracking-tight text-(--text-on-dark)"
+        >
           Hocus Pocus Dare Invokus!
         </h4>
         <small
@@ -200,7 +203,10 @@ onMounted(() => {
           >{{ dareDesc }}</small
         >
       </div>
-      <legend v-if="dareSentence" class="mt-6 p-1">
+      <legend
+        v-if="dareSentence"
+        class="mt-2 p-1 font-[Raleway] font-bold text-(--text-on-dark) text-xl text-center"
+      >
         Click the button again for your next dare
       </legend>
     </div>

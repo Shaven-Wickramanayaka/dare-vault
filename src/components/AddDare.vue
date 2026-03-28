@@ -47,7 +47,7 @@ const addDare = async () => {
 </script>
 <template>
   <div
-    class="bg-(--color-evergreen) flex flex-col h-80 aspect-3/2 text-center mt-6 mx-6 px-9 pt-2 pb-4 rounded-2xl justify-between"
+    class="bg-(--color-evergreen) flex flex-col h-80 aspect-3/2 text-center mt-6 mx-6 px-9 pt-2 pb-4 rounded-2xl justify-between shadow-2xl shadow-[#283929]"
   >
     <h2 class="p-2 m-2 text-2xl font-medium text-(--text-on-dark)">Add Dare</h2>
     <label

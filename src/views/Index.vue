@@ -10,7 +10,7 @@ const isLoggedIn = computed(() => !!user.value);
 </script>
 <template>
   <div v-if="isLoading" class="flex justify-center items-center h-screen">
-    <p>Loading...</p>
+    <p class="font-[Pacifico] text-4xl text-(--text-on-dark)">Loading...</p>
   </div>
   <Dashboard v-else-if="isLoggedIn"></Dashboard>
   <Home v-else></Home>
